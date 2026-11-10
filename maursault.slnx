@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="maursault.vcxproj" Id="cebd6d71-b474-46bb-946a-4eedd56b879d" />
+</Solution>

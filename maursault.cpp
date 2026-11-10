@@ -1,25 +1,27 @@
 ﻿// maursault.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
 //
-
+#include "Player.h"
 #include <iostream>
 #include "raylib.h"
 
-#include "player.h"
+#
 
 int main()
 {
     InitWindow(800, 600, "My Game");
     SetTargetFPS(60);
+
+    Player player= Player();
+
     
     while (!WindowShouldClose())
     {
         BeginDrawing();
         ClearBackground(RAYWHITE);
+
+        player.Draw();
         EndDrawing();
     }
-    
-    
-
     CloseWindow();
     return 0;
 }

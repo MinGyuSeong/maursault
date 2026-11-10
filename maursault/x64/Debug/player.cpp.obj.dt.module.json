@@ -3,10 +3,10 @@
     "revision": 0,
     "rules": [
         {
-            "primary-output": "maursault\\x64\\Debug\\player.obj",
+            "primary-output": "maursault\\x64\\Debug\\Player.obj",
             "outputs": [
-                "maursault\\x64\\Debug\\player.cpp.obj.dt.module.json",
-                "maursault\\x64\\Debug\\player.cpp.obj.dt.d.json"
+                "maursault\\x64\\Debug\\Player.cpp.obj.dt.module.json",
+                "maursault\\x64\\Debug\\Player.cpp.obj.dt.d.json"
             ],
             "requires": []
         }
