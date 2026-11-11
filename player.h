@@ -5,10 +5,16 @@
 #include "raylib.h"
 #include "Base_information.h"
 #include"Attack.h"
-enum Player_Direction;
+enum Player_Direction
+{
+	LEFT,
+	RIGHT
+};
 
 class Player
 {
+public:
+	Player();
 private:
 	int hp ;
 	int mp ;
@@ -17,8 +23,7 @@ private:
 	int exp ;
 	int level;
 
-	int pos_x;
-	int pos_y;
+	Vector2 pos;
 
 	int size_x;
 	int size_y;
@@ -27,7 +32,10 @@ private:
 	void Input_Direction();
 	void Input_Attack();
 public:
-	Player();
+	Vector2 Return_Pos();
+
+	///
+
 	void Update();
 	void Draw();
 	void Get_Damage(int damage);

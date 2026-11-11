@@ -8,7 +8,7 @@ enum Player_Direction
 
 Player::Player()
 	:hp(100), mp(100), atk(10), def(0), exp(0), level(0), p_direc(Player_Direction::right)
-	,pos_x(WINDOW_WIDTH/2), pos_y(WINDOW_HEIGHT/2 +500),size_x(100),size_y(100) {
+	, pos({ WINDOW_WIDTH / 2,WINDOW_HEIGHT / 2 +200}), size_x(100), size_y(100) {
 }
 
 
@@ -20,16 +20,27 @@ void Player::Input_Direction() {
 		p_direc = Player_Direction::left;
 	}
 }
+//
+Vector2 Player::Return_Pos() {
+	return pos;
+}
 
+
+
+//
 
 void Player::Update() {
+	Base_Attack attack;
+	attack.Attack_Before(*this);
 	p_direc = Player_Direction::right;
 }
 
 void Player::Draw() {
-	DrawRectangle(pos_x,pos_y, size_x, size_y,BLACK);
+	DrawRectangle(pos.x,pos.y, size_x, size_y,BLACK);
 	//DrawTexturePro();
 }
+
+
 void Player::Get_Damage(int damage) {
 	hp -= damage;
 	if (hp < 0) {

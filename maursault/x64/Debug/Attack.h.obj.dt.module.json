@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "maursault\\x64\\Debug\\Attack.obj",
+            "outputs": [
+                "maursault\\x64\\Debug\\Attack.h.obj.dt.module.json",
+                "maursault\\x64\\Debug\\Attack.h.obj.dt.d.json"
+            ],
+            "requires": []
+        }
+    ]
+}

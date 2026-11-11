@@ -2,14 +2,19 @@
 #define MAURSAULT_ATTACK_H
 #include "Base_information.h"
 #include "Player.h"
+
+
+
+
 //class Player;
+
 class Player;
 
-class Attak
+class Attack
 {
 public:
-	Attak();
-	~Attak();
+	Attack(){}
+	~Attack(){}
 
 private:
 
@@ -29,16 +34,16 @@ public:
 };
 ///////////////
 
-class Base_Attack : public Attak {
+class Base_Attack : public Attack {
 public:
-	Base_Attack();
-	~Base_Attack();
+	Base_Attack(){}
+	~Base_Attack(){}
 private:
 public:
 	virtual void Attack_Before(Player& player) override;
 	virtual void Attack_Motion(Player& player) override;
 	virtual void Attack_collision(Player& player) override;
-
+	virtual void draw()override;
 };
 
 
