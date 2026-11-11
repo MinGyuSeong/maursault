@@ -2,11 +2,11 @@
 //
 
 #include "raylib.h"
-#include "player.h"
+#include "Player.h"
 #include "Attack.h"
 #include <iostream>
+#include "Base_infomation.h"
 //#include <windows.h>
-
 
 
 
@@ -18,13 +18,12 @@ int main()
 
     //https://www.raylib.com/examples/core/loader.html?name=core_window_flags
     //윈도우 사이즈
-    InitWindow(1920, 1080, "My Game");
+    InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "My Game");
 
-    ToggleFullscreen();
+    //ToggleFullscreen();
+	Player player;
+
     SetTargetFPS(60);
-
-    Player player;
-    Attack attack;
 
     while (!WindowShouldClose())
     {

@@ -1,5 +1,3 @@
-#include <iostream>
-#include "raylib.h"
 #include "Player.h"
 
 enum Player_Direction
@@ -8,12 +6,9 @@ enum Player_Direction
 	left
 };
 
-
-
 Player::Player()
 	:hp(100), mp(100), atk(10), def(0), exp(0), level(0), p_direc(Player_Direction::right)
-	,pos_x(100), pos_y(100),size_x(100),size_y(100) {
-
+	,pos_x(WINDOW_WIDTH/2), pos_y(WINDOW_HEIGHT/2 +500),size_x(100),size_y(100) {
 }
 
 
@@ -25,7 +20,6 @@ void Player::Input_Direction() {
 		p_direc = Player_Direction::left;
 	}
 }
-
 
 
 void Player::update() {
