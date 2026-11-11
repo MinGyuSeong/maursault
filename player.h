@@ -3,8 +3,8 @@
 
 #include <iostream>
 #include "raylib.h"
-#include "Base_infomation.h"
-#include"attack.h"
+#include "Base_information.h"
+#include"Attack.h"
 enum Player_Direction;
 
 class Player
@@ -28,8 +28,23 @@ private:
 	void Input_Attack();
 public:
 	Player();
-	void update();
+	void Update();
 	void Draw();
-	void getdamage(int damage);
+	void Get_Damage(int damage);
 };
+
+
+//class Attak
+//{
+//public:
+//	Attak();
+//	~Attak();
+//
+//private:
+//
+//public:
+//	virtual void Attack_Before(Player& player);
+//	virtual void Attack_Motion(Player& player);
+//	virtual void Attack_collision(Player& player);
+//};
 #endif // !defined(MAURSAULT_PLAYER_H)

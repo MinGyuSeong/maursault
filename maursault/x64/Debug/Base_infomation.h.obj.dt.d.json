@@ -132,7 +132,8 @@
             "c:\\vcpkg\\installed\\x64-windows\\include\\raylib.h",
             "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\stdarg.h",
             "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\stdbool.h",
-            "c:\\users\\asus\\desktop\\gam100\\maursault\\maursault\\attack.h"
+            "c:\\users\\asus\\desktop\\gam100\\maursault\\maursault\\attack.h",
+            "c:\\users\\asus\\desktop\\gam100\\maursault\\maursault\\player.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

@@ -5,7 +5,7 @@
 #include "Player.h"
 #include "Attack.h"
 #include <iostream>
-#include "Base_infomation.h"
+#include "Base_information.h"
 //#include <windows.h>
 
 
@@ -14,8 +14,7 @@ int main()
 {
     //SetConsoleDisplayMode(GetStdHandle(STD_OUTPUT_HANDLE), CONSOLE_FULLSCREEN_MODE, 0);
     //SetConfigFlags(FLAG_WINDOW_TOPMOST | FLAG_WINDOW_UNDECORATED);
-
-
+    // 
     //https://www.raylib.com/examples/core/loader.html?name=core_window_flags
     //윈도우 사이즈
     InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "My Game");
@@ -32,6 +31,7 @@ int main()
 
         player.Draw();
         EndDrawing();
+        player.Update();
     }
     CloseWindow();
     return 0;

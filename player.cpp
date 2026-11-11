@@ -22,7 +22,7 @@ void Player::Input_Direction() {
 }
 
 
-void Player::update() {
+void Player::Update() {
 	p_direc = Player_Direction::right;
 }
 
@@ -30,10 +30,7 @@ void Player::Draw() {
 	DrawRectangle(pos_x,pos_y, size_x, size_y,BLACK);
 	//DrawTexturePro();
 }
-
-
-
-void Player::getdamage(int damage) {
+void Player::Get_Damage(int damage) {
 	hp -= damage;
 	if (hp < 0) {
 		hp = 0;
