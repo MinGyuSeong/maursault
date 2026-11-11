@@ -1,11 +1,13 @@
 #include <iostream>
 #include "raylib.h"
 #include "Player.h"
+
 enum Player_Direction
 {
 	right,
 	left
 };
+
 
 
 Player::Player()
@@ -24,10 +26,6 @@ void Player::Input_Direction() {
 	}
 }
 
-void Player::Atack(){
-
-}
-
 
 
 void Player::update() {
@@ -37,4 +35,13 @@ void Player::update() {
 void Player::Draw() {
 	DrawRectangle(pos_x,pos_y, size_x, size_y,BLACK);
 	//DrawTexturePro();
+}
+
+
+
+void Player::getdamage(int damage) {
+	hp -= damage;
+	if (hp < 0) {
+		hp = 0;
+	}
 }

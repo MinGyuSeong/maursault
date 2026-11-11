@@ -1,19 +1,31 @@
 ﻿// maursault.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
 //
-#include "Player.h"
-#include <iostream>
-#include "raylib.h"
 
-#
+#include "raylib.h"
+#include "player.h"
+#include "Attack.h"
+#include <iostream>
+//#include <windows.h>
+
+
+
 
 int main()
 {
-    InitWindow(800, 600, "My Game");
+    //SetConsoleDisplayMode(GetStdHandle(STD_OUTPUT_HANDLE), CONSOLE_FULLSCREEN_MODE, 0);
+    //SetConfigFlags(FLAG_WINDOW_TOPMOST | FLAG_WINDOW_UNDECORATED);
+
+
+    //https://www.raylib.com/examples/core/loader.html?name=core_window_flags
+    //윈도우 사이즈
+    InitWindow(1920, 1080, "My Game");
+
+    ToggleFullscreen();
     SetTargetFPS(60);
 
-    Player player= Player();
+    Player player;
+    Attack attack;
 
-    
     while (!WindowShouldClose())
     {
         BeginDrawing();
