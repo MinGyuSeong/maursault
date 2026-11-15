@@ -2,9 +2,7 @@
 #define MAURSAULT_ATTACK_H
 #include "Base_information.h"
 #include "Player.h"
-
-
-
+#include "Bullet.h"
 
 //class Player;
 
@@ -20,17 +18,15 @@ private:
 
 public:
 	virtual void Attack_Before(Player& player);
-	virtual void Attack_Motion(Player& player);
+	virtual void Attack_(Player& player);
 	virtual void Attack_collision(Player& player);
 	
 	void update(Player& player) {
 		Attack_Before(player);
-		Attack_Motion(player);
+		Attack_(player);
 		Attack_collision(player);
 	}
-	virtual void draw() {
-
-	}
+	void draw();
 };
 ///////////////
 
@@ -41,12 +37,8 @@ public:
 private:
 public:
 	virtual void Attack_Before(Player& player) override;
-	virtual void Attack_Motion(Player& player) override;
+	virtual void Attack_(Player& player) override;
 	virtual void Attack_collision(Player& player) override;
-	virtual void draw()override;
 };
-
-
-
 
 #endif

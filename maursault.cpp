@@ -4,9 +4,11 @@
 
 #include "Player.h"
 #include "Attack.h"
+#include "Monster.h"
+#include "Bullet.h"
 #include "Base_information.h"
 //#include <windows.h>
-
+std::vector<Monster*> monsters;
 
 
 int main()
@@ -23,13 +25,33 @@ int main()
 
     SetTargetFPS(60);
 
+    double timer = 0;
+
     while (!WindowShouldClose())
     {
+
+        timer += GetFrameTime();
+		if (timer >=3) {
+            monsters.push_back(new Monster_Robot({ 0, WINDOW_HEIGHT / 2 + 200 },
+                Direction::RIGHT));
+            monsters.push_back(new Monster_Robot({ 1980, WINDOW_HEIGHT / 2 + 200 },
+                Direction::LEFT));
+
+            timer = 0;
+		}
+
         BeginDrawing();
         ClearBackground(RAYWHITE);
 
         player.Draw();
         player.Update();
+
+        for (auto monster : monsters) {
+            monster->Draw();
+            monster->Update(player);
+        }
+        draw_bullets();
+        update_bullets();
         EndDrawing();
     }
     CloseWindow();

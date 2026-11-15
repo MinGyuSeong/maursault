@@ -138,7 +138,8 @@
             "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\ostream",
             "c:\\users\\성민규\\documents\\github\\maursault\\player.h",
             "c:\\users\\성민규\\documents\\github\\maursault\\attack.h",
-            "c:\\users\\성민규\\documents\\github\\maursault\\player.h"
+            "c:\\users\\성민규\\documents\\github\\maursault\\player.h",
+            "c:\\users\\성민규\\documents\\github\\maursault\\bullet.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

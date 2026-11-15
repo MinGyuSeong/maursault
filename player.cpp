@@ -1,38 +1,42 @@
 #include "Player.h"
 
-enum Player_Direction
-{
-	right,
-	left
-};
 
 Player::Player()
-	:hp(100), mp(100), atk(10), def(0), exp(0), level(0), p_direc(Player_Direction::right)
+	:hp(100), mp(100), atk(10), def(0), exp(0), level(0), p_direc(Direction::RIGHT)
 	, pos({ WINDOW_WIDTH / 2,WINDOW_HEIGHT / 2 +200}), size_x(100), size_y(100) {
 }
 
 
 void Player::Input_Direction() {
 	if (IsKeyPressed(KEY_A)) {
-		p_direc = Player_Direction::right;
+		p_direc = Direction::RIGHT;
 	}
 	else if (IsKeyPressed(KEY_B)) {
-		p_direc = Player_Direction::left;
+		p_direc = Direction::LEFT;
 	}
 }
+
+void Player::Input_Attack() {
+	if (IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) {
+		Base_Attack attack;
+		attack.Attack_(*this);
+	}
+}
+
 //
 Vector2 Player::Return_Pos() {
 	return pos;
 }
-
+Rectangle Player::Return_Rect() {
+	return { pos.x, pos.y, (float)size_x, (float)size_y };
+}
 
 
 //
-
 void Player::Update() {
 	Base_Attack attack;
 	attack.Attack_Before(*this);
-	p_direc = Player_Direction::right;
+	Input_Attack();
 }
 
 void Player::Draw() {

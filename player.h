@@ -1,15 +1,9 @@
 #ifndef MAURSAULT_PLAYER_H
 #define MAURSAULT_PLAYER_H
 
-#include <iostream>
-#include "raylib.h"
+
 #include "Base_information.h"
 #include"Attack.h"
-enum Player_Direction
-{
-	LEFT,
-	RIGHT
-};
 
 class Player
 {
@@ -27,12 +21,13 @@ private:
 
 	int size_x;
 	int size_y;
-	Player_Direction p_direc;
+	Direction p_direc;
 
 	void Input_Direction();
 	void Input_Attack();
 public:
 	Vector2 Return_Pos();
+	Rectangle Return_Rect();
 
 	///
 

@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Attack.cpp" />
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="maursault.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -147,6 +148,7 @@
   <ItemGroup>
     <ClInclude Include="Attack.h" />
     <ClInclude Include="Base_information.h" />
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="resource.h" />
