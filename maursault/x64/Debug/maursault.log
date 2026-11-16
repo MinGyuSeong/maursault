@@ -1,57 +1,22 @@
-﻿  Attack.cpp
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Attack.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'Attack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Base_information.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'Attack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Attack.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'Attack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Attack.cpp(32,28): warning C4838: 'int'에서 'float'(으)로의 변환에는 축소 변환이 필요합니다.
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Attack.cpp(32,28): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Attack.cpp(59,24): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Attack.cpp(59,17): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Attack.cpp(96,29): warning C4838: 'int'에서 'float'(으)로의 변환에는 축소 변환이 필요합니다.
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Attack.cpp(96,29): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  Bullet.cpp
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Base_information.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'Bullet.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Attack.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'Bullet.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.cpp(25,26): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.cpp(25,19): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.cpp(40,16): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
-  maursault.cpp
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Base_information.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'maursault.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Attack.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'maursault.cpp'을(를) 컴파일하는 중)
-  
-  Monster.cpp
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Monster.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Base_information.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'Monster.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Attack.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'Monster.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Monster.cpp(41,26): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Monster.cpp(41,19): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  Player.cpp
+﻿  Player.cpp
+C:\Users\ASUS\Desktop\gam100\maursault\maursault\Player.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
 C:\Users\ASUS\Desktop\gam100\maursault\maursault\Base_information.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
   (소스 파일 'Player.cpp'을(를) 컴파일하는 중)
   
 C:\Users\ASUS\Desktop\gam100\maursault\maursault\Attack.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
   (소스 파일 'Player.cpp'을(를) 컴파일하는 중)
   
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Player.cpp(43,25): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Player.cpp(43,19): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  코드를 생성하고 있습니다...
-  LINK : C:\Users\ASUS\Desktop\gam100\maursault\maursault\x64\Debug\maursault.exe을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
+C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  (소스 파일 'Player.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\ASUS\Desktop\gam100\maursault\maursault\Monster.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  (소스 파일 'Player.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\ASUS\Desktop\gam100\maursault\maursault\Player.cpp(9,17): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ASUS\Desktop\gam100\maursault\maursault\Player.cpp(10,17): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ASUS\Desktop\gam100\maursault\maursault\Player.cpp(72,18): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ASUS\Desktop\gam100\maursault\maursault\Player.cpp(95,26): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ASUS\Desktop\gam100\maursault\maursault\Player.cpp(95,19): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   maursault.vcxproj -> C:\Users\ASUS\Desktop\gam100\maursault\maursault\x64\Debug\maursault.exe
   'pwsh.exe'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램, 또는
   배치 파일이 아닙니다.

@@ -5,6 +5,13 @@
 #include "Base_information.h"
 #include"Attack.h"
 
+enum Player_Animation_State
+{
+	idle,
+	ChangeDirection
+};
+
+
 class Player
 {
 public:
@@ -21,10 +28,21 @@ private:
 
 	int size_x;
 	int size_y;
+
+	float anime_size_x;
+	float anime_size_y;
+	double anime_time;
+
 	Direction p_direc;
+	Texture2D Texture_player = LoadTexture("player.png");
+
+
+	Player_Animation_State anme_state;
 
 	void Input_Direction();
 	void Input_Attack();
+
+	void Anmation_AD();
 public:
 	Vector2 Return_Pos();
 	Rectangle Return_Rect();

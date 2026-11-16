@@ -27,6 +27,8 @@ protected:
 	Direction m_direc;//오른쪽에서 올지 왼쪽애서 올지
 	Monster_State m_state;//스테이트 행동 결정
 
+
+
 	int size_x;
 	int size_y;
 public:
@@ -44,7 +46,8 @@ public:
 
 	void Get_Damage(int damage);
 };
-//------------
+
+
 /*
 	대부분의 클래스 bullet attack monster등을 상속으로 만들거임
 
@@ -70,9 +73,8 @@ public:
 	}
 	꼴로 만들어야함 
 
-	나름 깔끔하게 보일려고 class랑 헤더파일 써봤는데 이거 때매 더 복잡아진것 같기도 하고 잘모르겠음 ㄷㄷ
-*/
-
+	나름 깔끔하게 보일려고 class랑 헤더파일 써봤는데 이거 때매 더 복잡아진것 같기도 하고 잘모르겠음 ㄷㄷ*/
+///
 
 class Monster_Robot : public Monster {
 public:
