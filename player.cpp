@@ -92,7 +92,7 @@ void Player::Anmation_AD() {
 
 
 void Player::Draw() {
-	DrawRectangle(pos.x, pos.y, size_x, size_y, BLACK);
+	//DrawRectangle(pos.x, pos.y, size_x, size_y, BLACK);
 	Anmation_AD();
 	//DrawTexturePro();
 	
