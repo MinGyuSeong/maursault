@@ -72,6 +72,12 @@ Monster_Robot::Monster_Robot(Vector2 position, Direction direction)
 
 Monster_Robot::~Monster_Robot() {}
 
+/*
+move 스테이트가 아닐때 실행안함
+방향에 따라 한쪽으로 계속 움직임 
+사정거리안에 플레이어가 있으면
+Attack_State변경
+*/
 void Monster_Robot::MoveState(Player& player) {
 	if (m_state != MOVE)
 	{
@@ -88,6 +94,15 @@ void Monster_Robot::MoveState(Player& player) {
 		attack_timer = attack_coolTime/2;//선 공격 쿨타임
 	}
 }
+
+/*
+attack state가 아닐때 실행안함
+거리가 멀어지면 movestate로 변경 
+쿨타임 제기 시작
+쿨이 돌때마다 플레이어 공격
+
+거리가 멀어지면 movestate로 변경 
+*/
 void Monster_Robot::Attack_State(Player& player) {
 	if (m_state != ATTACK)
 	{
@@ -106,11 +121,21 @@ void Monster_Robot::Attack_State(Player& player) {
 	}
 	attack_timer += GetFrameTime();
 }
+//주금
 void Monster_Robot::Die_State(Player& player) {
 	if (hp <= 0) {
 		m_state = DIE;
 	}
 }
+
+/*플레이어 공격로직
+플레이어 사각형 가져오기 
+몬스터 사각형 가져오기 
+퉁돌이면 데미지
+
+인데 "몬스터 사각형 가져오기"이걸 
+공격 collision 을 따로 만드는 방식으로 바꿀거임
+*/
 
 void Monster_Robot::Attack_Player(Player& player) {
 	Rectangle player_rect = player.Return_Rect();

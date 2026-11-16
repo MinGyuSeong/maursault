@@ -31,13 +31,12 @@ protected:
 
 	Vector2_double Unit_Vector(Vector2& direction);
 public:
-	virtual void Move();
-	virtual void collision(Monster& monster);
+	virtual void Move();//총알이 낭아가는 경로 함수
+	virtual void collision(Monster& monster);//몬스터와의 충돌 체크 미완
 
-	void Update();
+	void Update();//
 	void Draw();
 };
-
 
 
 class Bullet_Mortar :public Bullet

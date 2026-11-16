@@ -20,7 +20,7 @@ void Player::Input_Attack() {
 	if (IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) {
 		Base_Attack attack;
 		attack.Attack_(*this);
-	}
+	}//공격 실행 attack을 실행
 }
 
 //
@@ -36,14 +36,14 @@ Rectangle Player::Return_Rect() {
 void Player::Update() {
 	Base_Attack attack;
 	attack.Attack_Before(*this);
-	Input_Attack();
+	Input_Attack();//에택 다양한 무기로 공격할 예정
+	//기초 미완
 }
 
 void Player::Draw() {
 	DrawRectangle(pos.x,pos.y, size_x, size_y,BLACK);
 	//DrawTexturePro();
 }
-
 
 void Player::Get_Damage(int damage) {
 	hp -= damage;

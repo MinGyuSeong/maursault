@@ -25,8 +25,6 @@ void Bullet::Draw() {
 	DrawRectangle(pos.x, pos.y, size_x, size_y, BLACK);
 }
 
-
-
 Vector2_double Bullet::Unit_Vector(Vector2& direction) {
 	double unit = sqrt(direction.x * direction.x + direction.y * direction.y);
 	return { (double)direction.x / unit, (double)direction.y / unit };
@@ -56,6 +54,7 @@ void Bullet_Mortar::Move() {
 	pos.y -= direction.y * speed_y * GetFrameTime() * 4;
 	pos.y += direction.y * gravity/2 * GetFrameTime() * 4;
 	gravity += gravity * GetFrameTime() * 4;
+	//총알 움직임 박격포 움직임 패치 예정
 }
 
 void Bullet_Mortar::collision(Monster& monster) {
@@ -64,5 +63,5 @@ void Bullet_Mortar::collision(Monster& monster) {
 
 	if (CheckCollisionRecs(bullet_rect, monster_rect)) {
 		monster.Get_Damage(atk);
-	}
+	}//충돌 체크 함수실행을 안함
 }

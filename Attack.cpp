@@ -11,7 +11,7 @@ void update_bullets() {
 		bullet->Update();
 	}
 }
-/// 
+///main에서 실행됨  
 
 
 void Attack::Attack_Before(Player& player) {
@@ -26,7 +26,6 @@ void Attack::Attack_collision(Player& player) {
 void Attack::draw() {
 
 }
-
 
 //https://rhksgml78.tistory.com/272
 void Base_Attack::Attack_Before(Player& player) {
@@ -59,7 +58,8 @@ void Base_Attack::Attack_Before(Player& player) {
 		}
 		DrawCircle(pos.x, pos.y, 5, RED);
 	}
-
+	// 공격전 공격 경로를 보여주는 함수 
+	// 공을 던지고 그경로를 보여줌 미완 
 #pragma region trash
 
 
@@ -90,7 +90,8 @@ void Base_Attack::Attack_Before(Player& player) {
 	//	DrawLine(bazier[i-1].x, bazier[i-1].y, bazier[i].x, bazier[i].y,RED);
 	//	//DrawCircle(bazier[i].x, bazier[i].y, 10, RED)
 	//}
-#pragma endregion
+#pragma endregion 
+	//실패작
 }
 
 void Base_Attack::Attack_(Player& player) {
@@ -105,11 +106,15 @@ void Base_Attack::Attack_(Player& player) {
 	}
 	if (direction.y < 10) {
 		direction.y = 10;
-	}
-
+	}//경로 설정
 
 	bullets.push_back(new Bullet_Mortar({ player_pos.x, player_pos.y }, direction));
+	//총알 생성
+
+	//총알 생성
+	//총알을 만들때 총알이 생성되는 위치랑 날아가는 경로를 설졍해야함 
+	//생성한 총알을 bullets 벡터 리스트에 넣어야지 실행됨
 }
 
 void Base_Attack::Attack_collision(Player& player) {}
-
+//충돌 체크 

@@ -29,7 +29,6 @@ int main()
 
     while (!WindowShouldClose())
     {
-
         timer += GetFrameTime();
 		if (timer >=3) {
             monsters.push_back(new Monster_Robot({ 0, WINDOW_HEIGHT / 2 + 200 },
@@ -38,20 +37,22 @@ int main()
                 Direction::LEFT));
 
             timer = 0;
-		}
+		}//생성
 
         BeginDrawing();
         ClearBackground(RAYWHITE);
 
         player.Draw();
-        player.Update();
+        player.Update();//플레이어
 
         for (auto monster : monsters) {
             monster->Draw();
             monster->Update(player);
-        }
+        }//몬스터
+
         draw_bullets();
-        update_bullets();
+        update_bullets();//총알
+
         EndDrawing();
     }
     CloseWindow();
