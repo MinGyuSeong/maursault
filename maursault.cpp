@@ -8,7 +8,6 @@
 #include "Bullet.h"
 #include "Base_information.h"
 //#include <windows.h>
-std::vector<Monster*> monsters;
 
 
 int main()
@@ -31,11 +30,11 @@ int main()
     {
         timer += GetFrameTime();
 		if (timer >=3) {
-            monsters.push_back(new Monster_Robot({ 0, WINDOW_HEIGHT / 2 + 200 },
-                Direction::RIGHT));
-            monsters.push_back(new Monster_Robot({ 1980, WINDOW_HEIGHT / 2 + 200 },
-                Direction::LEFT));
-
+            //monsters.push_back(new Monster_Robot({ 0, WINDOW_HEIGHT / 2 + 200 },
+            //    Direction::RIGHT));
+            //monsters.push_back(new Monster_Robot({ 1980, WINDOW_HEIGHT / 2 + 200 },
+            //    Direction::LEFT));
+            spawn_monster();
             timer = 0;
 		}//생성
 
@@ -45,10 +44,16 @@ int main()
         player.Draw();
         player.Update();//플레이어
 
-        for (auto monster : monsters) {
-            monster->Draw();
-            monster->Update(player);
-        }//몬스터
+        //for (auto monster : monsters) {
+        //    monster->Draw();
+        //    monster->Update(player);
+        //}//몬스터
+        draw_monsters();
+        update_monsters(player);
+
+        for (auto monster : return_monsters()) {
+            collision_bullets(*monster);
+        }
 
         draw_bullets();
         update_bullets();//총알

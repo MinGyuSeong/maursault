@@ -11,8 +11,13 @@ void update_bullets() {
 		bullet->Update();
 	}
 }
-///main에서 실행됨  
+void collision_bullets(Monster& monster) {
+	for (auto bullet : bullets) {
+		bullet->collision(monster);
+	}
+}
 
+///main에서 실행됨  
 
 void Attack::Attack_Before(Player& player) {
 

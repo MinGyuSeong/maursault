@@ -35,7 +35,8 @@ Vector2 Player::Return_Pos() {
 	return pos;
 }
 Rectangle Player::Return_Rect() {
-	return { pos.x, pos.y, (float)size_x, (float)size_y };
+	return { pos.x - (float)size_x/2, pos.y- (float)size_y ,
+		(float)size_x, (float)size_y };
 }
 
 
@@ -84,10 +85,7 @@ void Player::Anmation_AD() {
 	}
 	else if (anime_time < 0.3) {
 		anime_size_y += 110 * GetFrameTime();
-
 	}
-
-
 }
 
 
@@ -105,6 +103,5 @@ void Player::Draw() {
 	DrawTexturePro(Texture_player,
 		{ 0,0,768.0f * direction,768 },
 		{ pos.x,pos.y,(float)anime_size_y,(float)anime_size_y },
-		{ (float)size_x / 2 ,(float)size_y / 2 }, 0.0f, WHITE);
-
+		{ (float)size_x / 2 ,(float)size_y }, 0.0f, WHITE);
 }

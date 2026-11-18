@@ -11,7 +11,6 @@ enum Player_Animation_State
 	ChangeDirection
 };
 
-
 class Player
 {
 public:
