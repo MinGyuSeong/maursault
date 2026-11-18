@@ -13,6 +13,7 @@ void update_bullets() {
 }
 void collision_bullets(Monster& monster) {
 	for (auto bullet : bullets) {
+
 		bullet->collision(monster);
 	}
 }
@@ -48,21 +49,26 @@ void Base_Attack::Attack_Before(Player& player) {
 	}
 	
 	Vector2 pos = player_pos;
-	float speed = 1;
-	float speed_y = 10;
-	float gravity = 1;
-
-	for (int i = 0; i < 100; i++) {
-		pos.x += direction.x * speed;
-		pos.y -= direction.y * speed_y;
-		pos.y += direction.y * gravity / 2;
-		gravity += gravity;
+	float speed = 2;
+	float speed_y = 20;
+	float gravity = 2;
+	std::vector<Vector2> points = {};
+	for (int i = 0; i < 300; i++) {
+		pos.x += direction.x * speed * 1/ SET_FrameRate * 5;
+		pos.y -= direction.y * speed_y* 1/ SET_FrameRate * 5;
+		pos.y += direction.y * gravity / 2 * 1/ SET_FrameRate * 5;
+		gravity += gravity * 1/ SET_FrameRate * 5;
 
 		if (pos.y > player_pos.y+100) {
 			break;
 		}
-		DrawCircle(pos.x, pos.y, 5, RED);
+		points.push_back(pos);
 	}
+	for (int i = 0; i < points.size() - 1; i++) {
+		DrawLine(points[i].x, points[i].y, points[i+1].x, points[i+1].y, RED);
+	}
+
+
 	// 공격전 공격 경로를 보여주는 함수 
 	// 공을 던지고 그경로를 보여줌 미완 
 #pragma region trash

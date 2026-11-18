@@ -22,7 +22,7 @@ int main()
     //ToggleFullscreen();
 	Player player;
 
-    SetTargetFPS(60);
+    SetTargetFPS(SET_FrameRate);
 
     double timer = 0;
 

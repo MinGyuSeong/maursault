@@ -7,6 +7,9 @@ class Monster;
 void draw_bullets();
 void update_bullets();
 void collision_bullets(Monster& monster);
+
+
+
 struct Vector2_double
 {
 	double x;
@@ -28,6 +31,9 @@ protected:
 
 	int size_x;
 	int size_y;
+
+	std::map<Monster*, double> checkcol;
+	double atk_cooltime;
 
 	Vector2_double Unit_Vector(Vector2& direction);
 public:

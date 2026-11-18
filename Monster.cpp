@@ -69,6 +69,7 @@ void Monster::Draw() {
 
 void Monster::Get_Damage(int damage) {
 	hp -= damage;
+	
 	if (hp < 0) {
 		hp = 0;
 	}
@@ -174,4 +175,5 @@ void Monster_Robot::Attack_Player(Player& player) {
 	//std::cout << "Try Attack" << std::endl;
 	return;
 }
+
 #pragma endregion

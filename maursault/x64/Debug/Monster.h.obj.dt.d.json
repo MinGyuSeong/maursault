@@ -1,10 +1,10 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "c:\\users\\성민규\\documents\\github\\maursault\\monster.h",
+        "Source": "c:\\users\\asus\\desktop\\gam100\\maursault\\maursault\\monster.h",
         "ProvidedModule": "",
         "Includes": [
-            "c:\\users\\성민규\\documents\\github\\maursault\\base_information.h",
+            "c:\\users\\asus\\desktop\\gam100\\maursault\\maursault\\base_information.h",
             "c:\\vcpkg\\installed\\x64-windows\\include\\raylib.h",
             "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\stdarg.h",
             "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\vcruntime.h",
@@ -135,10 +135,13 @@
             "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\clocale",
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.26100.0\\ucrt\\locale.h",
             "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\ostream",
-            "c:\\users\\성민규\\documents\\github\\maursault\\player.h",
-            "c:\\users\\성민규\\documents\\github\\maursault\\attack.h",
-            "c:\\users\\성민규\\documents\\github\\maursault\\player.h",
-            "c:\\users\\성민규\\documents\\github\\maursault\\bullet.h"
+            "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\map",
+            "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\xtree",
+            "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\xnode_handle.h",
+            "c:\\users\\asus\\desktop\\gam100\\maursault\\maursault\\player.h",
+            "c:\\users\\asus\\desktop\\gam100\\maursault\\maursault\\attack.h",
+            "c:\\users\\asus\\desktop\\gam100\\maursault\\maursault\\player.h",
+            "c:\\users\\asus\\desktop\\gam100\\maursault\\maursault\\bullet.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []
