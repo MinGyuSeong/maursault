@@ -2,6 +2,8 @@
 #define MAURSAULT_PLAYER_H
 #include "Base_information.h"
 #include"Attack.h"
+class Attack;
+class Base_Attack;
 
 enum Player_Animation_State
 {
@@ -35,8 +37,8 @@ private:
 	Direction p_direc;
 	Texture2D Texture_player = LoadTexture("player.png");
 
-	Attack attack;
-	Base_Attack base_attack;
+	Attack* attack;
+	Base_Attack* base_attack;
 
 
 	Player_Animation_State anme_state;
