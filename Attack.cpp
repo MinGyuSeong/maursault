@@ -54,11 +54,13 @@ void Base_Attack::Attack_Before(Player& player) {
 	float gravity = 2;
 	std::vector<Vector2> points = {};
 	for (int i = 0; i < 300; i++) {
-		pos.x += direction.x * speed * 1/ SET_FrameRate * 5;
-		pos.y -= direction.y * speed_y* 1/ SET_FrameRate * 5;
-		pos.y += direction.y * gravity / 2 * 1/ SET_FrameRate * 5;
-		gravity += gravity * 1/ SET_FrameRate * 5;
-
+		pos.x += direction.x * speed * 1/ SET_FrameRate * 4;
+		pos.y -= direction.y * speed_y* 1/ SET_FrameRate * 4;
+		pos.y += direction.y * gravity / 2 * 1/ SET_FrameRate * 4;
+		gravity += gravity * 1/ SET_FrameRate * 4;
+		if(gravity > 200) {
+			gravity = 200;
+		}
 		if (pos.y > player_pos.y+100) {
 			break;
 		}
@@ -118,7 +120,7 @@ void Base_Attack::Attack_(Player& player) {
 	if (direction.y < 10) {
 		direction.y = 10;
 	}//경로 설정
-
+	
 	bullets.push_back(new Bullet_Mortar({ player_pos.x, player_pos.y }, direction));
 	//총알 생성
 

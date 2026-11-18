@@ -15,21 +15,14 @@ C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.h(1,1): warning C4819: �
 C:\Users\ASUS\Desktop\gam100\maursault\maursault\Monster.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
   (소스 파일 'Attack.cpp'을(를) 컴파일하는 중)
   
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.h(58,15): error C3668: 'Bullet_Mortar::collision': 재정의 지정자 'override'가 있는 메서드가 기본 클래스 메서드를 재정의하지 않았습니다.
-  (소스 파일 'Attack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Attack.cpp(17,11): error C2039: 'collision': 'Bullet'의 멤버가 아닙니다.
-      C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.h(19,7):
-      'Bullet' 선언을 참조하십시오.
-  
 C:\Users\ASUS\Desktop\gam100\maursault\maursault\Attack.cpp(38,28): warning C4838: 'int'에서 'float'(으)로의 변환에는 축소 변환이 필요합니다.
 C:\Users\ASUS\Desktop\gam100\maursault\maursault\Attack.cpp(38,28): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Attack.cpp(68,64): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Attack.cpp(68,49): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Attack.cpp(68,34): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Attack.cpp(68,21): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Attack.cpp(109,29): warning C4838: 'int'에서 'float'(으)로의 변환에는 축소 변환이 필요합니다.
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Attack.cpp(109,29): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ASUS\Desktop\gam100\maursault\maursault\Attack.cpp(70,64): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ASUS\Desktop\gam100\maursault\maursault\Attack.cpp(70,49): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ASUS\Desktop\gam100\maursault\maursault\Attack.cpp(70,34): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ASUS\Desktop\gam100\maursault\maursault\Attack.cpp(70,21): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ASUS\Desktop\gam100\maursault\maursault\Attack.cpp(111,29): warning C4838: 'int'에서 'float'(으)로의 변환에는 축소 변환이 필요합니다.
+C:\Users\ASUS\Desktop\gam100\maursault\maursault\Attack.cpp(111,29): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   Bullet.cpp
 C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
 C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
@@ -44,96 +37,10 @@ C:\Users\ASUS\Desktop\gam100\maursault\maursault\Monster.h(1,1): warning C4819: 
 C:\Users\ASUS\Desktop\gam100\maursault\maursault\Attack.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
   (소스 파일 'Bullet.cpp'을(를) 컴파일하는 중)
   
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.h(58,15): error C3668: 'Bullet_Mortar::collision': 재정의 지정자 'override'가 있는 메서드가 기본 클래스 메서드를 재정의하지 않았습니다.
-  (소스 파일 'Bullet.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.cpp(17,14): error C2039: 'collision': 'Bullet'의 멤버가 아닙니다.
-      C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.h(19,7):
-      'Bullet' 선언을 참조하십시오.
-  
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.cpp(24,26): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.cpp(24,19): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.cpp(33,22): error C3312: 'std::tuple<Monster *,bool,double>' 형식에 대해 호출 가능한 'begin' 함수를 찾을 수 없습니다.
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.cpp(33,22): error C3312: 'std::tuple<Monster *,bool,double>' 형식에 대해 호출 가능한 'end' 함수를 찾을 수 없습니다.
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.cpp(33,2): error C2059: 구문 오류: 'for'
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.cpp(34,2): error C2059: 구문 오류: '{'
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.cpp(33,31): error C2630: 쉼표로 구분된 목록이 있어야 하는 곳에 ';'이(가) 있습니다.
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.cpp(34,2): error C2512: 'Bullet': 사용할 수 있는 적절한 기본 생성자가 없습니다.
-      C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.h(19,7):
-      'Bullet' 선언을 참조하십시오.
-  
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.cpp(39,12): error C2143: 구문 오류: ')'이(가) ',' 앞에 없습니다.
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.cpp(39,9): error C2512: 'Bullet': 사용할 수 있는 적절한 기본 생성자가 없습니다.
-      C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.h(19,7):
-      'Bullet' 선언을 참조하십시오.
-  
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.cpp(39,23): error C2059: 구문 오류: ')'
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.cpp(40,2): error C2355: 'this': 비정적 멤버 함수 또는 비정적 데이터 멤버 이니셜라이저 안에서만 참조할 수 있습니다.
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.cpp(40,17): error C2059: 구문 오류: ';'
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.cpp(41,2): error C2059: 구문 오류: 'this'
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.cpp(43,2): error C2059: 구문 오류: 'this'
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.cpp(44,2): error C2059: 구문 오류: 'this'
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.cpp(45,2): error C2059: 구문 오류: 'this'
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.cpp(46,2): error C2059: 구문 오류: 'this'
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.cpp(47,2): error C2059: 구문 오류: 'this'
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.cpp(48,2): error C2059: 구문 오류: 'this'
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.cpp(49,1): error C2059: 구문 오류: '}'
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.cpp(49,1): error C2143: 구문 오류: ';'이(가) '}' 앞에 없습니다.
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.cpp(51,33): error C2143: 구문 오류: ';'이(가) '{' 앞에 없습니다.
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.cpp(51,33): error C2447: '{': 함수 헤더가 없습니다. 이전 스타일의 형식 목록입니까?
-  Monster.cpp
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Monster.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Monster.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'Monster.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Base_information.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'Monster.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Attack.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'Monster.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'Monster.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.h(58,15): error C3668: 'Bullet_Mortar::collision': 재정의 지정자 'override'가 있는 메서드가 기본 클래스 메서드를 재정의하지 않았습니다.
-  (소스 파일 'Monster.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Monster.cpp(67,26): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Monster.cpp(67,19): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  Player.cpp
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Player.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Base_information.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'Player.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Attack.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'Player.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'Player.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Monster.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'Player.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.h(58,15): error C3668: 'Bullet_Mortar::collision': 재정의 지정자 'override'가 있는 메서드가 기본 클래스 메서드를 재정의하지 않았습니다.
-  (소스 파일 'Player.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Player.cpp(9,17): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Player.cpp(10,17): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Player.cpp(73,18): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  maursault.cpp
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Base_information.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'maursault.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Attack.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'maursault.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'maursault.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Monster.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'maursault.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.h(58,15): error C3668: 'Bullet_Mortar::collision': 재정의 지정자 'override'가 있는 메서드가 기본 클래스 메서드를 재정의하지 않았습니다.
-  (소스 파일 'maursault.cpp'을(를) 컴파일하는 중)
-  
+C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.cpp(41,26): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ASUS\Desktop\gam100\maursault\maursault\Bullet.cpp(41,19): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   코드를 생성하고 있습니다...
+  LINK : C:\Users\ASUS\Desktop\gam100\maursault\maursault\x64\Debug\maursault.exe을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
+  maursault.vcxproj -> C:\Users\ASUS\Desktop\gam100\maursault\maursault\x64\Debug\maursault.exe
+  'pwsh.exe'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램, 또는
+  배치 파일이 아닙니다.
