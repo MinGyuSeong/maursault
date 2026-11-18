@@ -6,11 +6,13 @@ void draw_bullets() {
 		bullet->Draw();
 	}
 }
+
 void update_bullets() {
 	for (auto bullet : bullets) {
 		bullet->Update();
 	}
 }
+
 void collision_bullets(Monster& monster) {
 	for (auto bullet : bullets) {
 
@@ -39,14 +41,9 @@ void Base_Attack::Attack_Before(Player& player) {
 	Vector2 player_pos = player.Return_Pos();
 	//Vector2 middle = { (player_pos.x + mouse.x) / 2, 0 };//p1
 	Vector2 direction = {1,1};
-	direction.x = (mouse.x - player_pos.x)/8;
-	direction.y = 40 - abs(direction.x);
-	if (direction.y > 20) {
-		direction.y = 20;
-	}
-	if (direction.y < 10) {
-		direction.y = 10;
-	}
+	direction.x = (mouse.x - player_pos.x)/10;
+	direction.y = 13;
+
 	
 	Vector2 pos = player_pos;
 	float speed = 2;
@@ -111,15 +108,10 @@ void Base_Attack::Attack_(Player& player) {
 	Vector2 mouse = { GetMouseX(),  player.Return_Pos().y };
 	Vector2 player_pos = player.Return_Pos();
 	//Vector2 middle = { (player_pos.x + mouse.x) / 2, 0 };//p1
+
 	Vector2 direction = { 1,1 };
-	direction.x = (mouse.x - player_pos.x) / 8;
-	direction.y = 40 - abs(direction.x);
-	if (direction.y > 20) {
-		direction.y = 20;
-	}
-	if (direction.y < 10) {
-		direction.y = 10;
-	}//경로 설정
+	direction.x = (mouse.x - player_pos.x) / 10;
+	direction.y = 13;//경로 설정
 	
 	bullets.push_back(new Bullet_Mortar({ player_pos.x, player_pos.y }, direction));
 	//총알 생성

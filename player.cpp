@@ -1,8 +1,18 @@
 #include "Player.h"
 
+Texture2D Texture_playeridle;
+Texture2D Texture_playerattack_motar;
+
+void LoadPlayer_Image() {
+	Texture_playeridle = LoadTexture("player.png");
+	Texture_playerattack_motar = LoadTexture("player_motar.png");
+}
+
 Player::Player()
 	:hp(100), mp(100), atk(10), def(0), exp(0), level(0), p_direc(Direction::RIGHT)
-	, pos({ WINDOW_WIDTH / 2,WINDOW_HEIGHT / 2 +200}), size_x(300), size_y(300) {
+	, pos({ WINDOW_WIDTH / 2,WINDOW_HEIGHT / 2 +200}),
+	size_x(300), size_y(300), 
+	Texture_player(Texture_playeridle){
 	//Texture_player = Load_Texture_player;
 	anime_size_x = size_x;
 	anime_size_y = size_y;
@@ -104,5 +114,5 @@ void Player::Draw() {
 	DrawTexturePro(Texture_player,
 		{ 0,0,768.0f * direction,768 },
 		{ pos.x,pos.y,(float)anime_size_y,(float)anime_size_y },
-		{ (float)size_x / 2 ,(float)size_y }, 0.0f, WHITE);
+		{ (float)anime_size_y / 2 ,(float)anime_size_y }, 0.0f, WHITE);
 }

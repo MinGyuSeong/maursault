@@ -13,7 +13,6 @@ class Attack
 public:
 	Attack(){}
 	~Attack(){}
-
 private:
 
 public:

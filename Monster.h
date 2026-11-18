@@ -8,6 +8,7 @@ void draw_monsters();
 void update_monsters(Player& player);
 void spawn_monster();
 
+void LoadMonster_Image();
 
 enum Monster_State;
 
@@ -27,14 +28,20 @@ protected:
 	double attack_coolTime;//공격 쿨타임
 	double attack_timer;//공격 타이머
 
+	double anime_timer=0;
+
+	Texture2D Texture_monster;
+
+
 	Vector2 pos;
 	Direction m_direc;//오른쪽에서 올지 왼쪽애서 올지
 	Monster_State m_state;//스테이트 행동 결정
 
-	int size_x;
-	int size_y;
+
+	Vector2 size;
+	Vector2 anime_size;
 public:
-	Rectangle Return_Rect();
+	virtual Rectangle Return_Rect();
 	Vector2 Return_Pos();
 
 	void Update(Player& player);
@@ -45,6 +52,8 @@ public:
 	virtual void Die_State(Player& player);//hp<0 아무 행동도 하지 않음
 
 	virtual void Attack_Player(Player& player);//Attack_State 플레이어를 공격
+	
+	virtual void Draw_anime();
 
 	void Get_Damage(int damage);
 };
@@ -82,11 +91,19 @@ public:
 	Monster_Robot(Vector2 position, Direction direction);
 	~Monster_Robot();
 private:
+	int anime_rotate;
+
+
+	//virtual funition
+	virtual Rectangle Return_Rect() override;
+
 	virtual void MoveState(Player& player) override;
 	virtual void Attack_State(Player& player) override;
 	virtual void Die_State(Player& player) override;
 
 	virtual void Attack_Player(Player& player) override;
+
+	virtual void Draw_anime() override;
 };
 
 std::vector<Monster*> return_monsters();

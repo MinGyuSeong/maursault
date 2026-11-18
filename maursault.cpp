@@ -19,6 +19,9 @@ int main()
     InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "My Game");
     //Load_image();
     //ToggleFullscreen();
+	LoadPlayer_Image();
+	LoadMonster_Image();
+
 	Player player;
 
     SetTargetFPS(SET_FrameRate);

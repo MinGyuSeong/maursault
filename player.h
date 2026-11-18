@@ -10,8 +10,9 @@ enum Player_Animation_State
 	idle,
 	ChangeDirection,
 	attack_mortar,
-
 };
+
+void LoadPlayer_Image();
 
 class Player
 {
@@ -35,7 +36,7 @@ private:
 	double anime_time;
 
 	Direction p_direc;
-	Texture2D Texture_player = LoadTexture("player.png");
+	Texture2D Texture_player;
 
 	Attack* attack;
 	Base_Attack* base_attack;

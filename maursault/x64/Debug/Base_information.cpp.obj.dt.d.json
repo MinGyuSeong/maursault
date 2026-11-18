@@ -1,10 +1,10 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "c:\\users\\asus\\desktop\\gam100\\maursault\\maursault\\base_information.cpp",
+        "Source": "c:\\users\\성민규\\documents\\github\\maursault\\base_information.cpp",
         "ProvidedModule": "",
         "Includes": [
-            "c:\\users\\asus\\desktop\\gam100\\maursault\\maursault\\base_information.h",
+            "c:\\users\\성민규\\documents\\github\\maursault\\base_information.h",
             "c:\\vcpkg\\installed\\x64-windows\\include\\raylib.h",
             "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\stdarg.h",
             "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\vcruntime.h",

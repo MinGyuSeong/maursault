@@ -1,24 +1,5 @@
-﻿  Attack.cpp
-C:\Users\성민규\Documents\GitHub\maursault\Attack.cpp(38,28): warning C4838: 'int'에서 'float'(으)로의 변환에는 축소 변환이 필요합니다.
-C:\Users\성민규\Documents\GitHub\maursault\Attack.cpp(38,28): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\성민규\Documents\GitHub\maursault\Attack.cpp(70,64): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\성민규\Documents\GitHub\maursault\Attack.cpp(70,49): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\성민규\Documents\GitHub\maursault\Attack.cpp(70,34): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\성민규\Documents\GitHub\maursault\Attack.cpp(70,21): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\성민규\Documents\GitHub\maursault\Attack.cpp(111,29): warning C4838: 'int'에서 'float'(으)로의 변환에는 축소 변환이 필요합니다.
-C:\Users\성민규\Documents\GitHub\maursault\Attack.cpp(111,29): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  Bullet.cpp
-C:\Users\성민규\Documents\GitHub\maursault\Bullet.cpp(39,26): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\성민규\Documents\GitHub\maursault\Bullet.cpp(39,19): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  maursault.cpp
-  Monster.cpp
-C:\Users\성민규\Documents\GitHub\maursault\Monster.cpp(67,26): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\성민규\Documents\GitHub\maursault\Monster.cpp(67,19): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  Player.cpp
-C:\Users\성민규\Documents\GitHub\maursault\Player.cpp(7,17): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\성민규\Documents\GitHub\maursault\Player.cpp(8,17): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\성민규\Documents\GitHub\maursault\Player.cpp(75,18): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  코드를 생성하고 있습니다...
+﻿  Monster.cpp
+C:\Users\성민규\Documents\GitHub\maursault\Monster.cpp(245,24): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   maursault.vcxproj -> C:\Users\성민규\Documents\GitHub\maursault\x64\Debug\maursault.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.

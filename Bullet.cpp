@@ -9,7 +9,6 @@ Bullet::Bullet(Vector2 pos, Vector2 direction)
 	};
 }
 
-
 Bullet::~Bullet() {}
 
 void Bullet::Move() {
