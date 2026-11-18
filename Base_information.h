@@ -14,7 +14,9 @@
 #define WINDOW_HEIGHT 1080
 
 #define SET_FrameRate 60
+
 enum Direction {
 	RIGHT,
 	LEFT
 };
+

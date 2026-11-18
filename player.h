@@ -1,14 +1,14 @@
 #ifndef MAURSAULT_PLAYER_H
 #define MAURSAULT_PLAYER_H
-
-
 #include "Base_information.h"
 #include"Attack.h"
 
 enum Player_Animation_State
 {
 	idle,
-	ChangeDirection
+	ChangeDirection,
+	attack_mortar,
+
 };
 
 class Player
@@ -35,11 +35,15 @@ private:
 	Direction p_direc;
 	Texture2D Texture_player = LoadTexture("player.png");
 
+	Attack attack;
+	Base_Attack base_attack;
+
 
 	Player_Animation_State anme_state;
 
 	void Input_Direction();
 	void Input_Attack();
+	void Input_Select_Weapon();
 
 	void Anmation_AD();
 public:

@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Attack.cpp" />
+    <ClCompile Include="Base_information.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="maursault.cpp" />
     <ClCompile Include="Monster.cpp" />

@@ -1,16 +1,13 @@
 #include "Player.h"
 
-
-
 Player::Player()
 	:hp(100), mp(100), atk(10), def(0), exp(0), level(0), p_direc(Direction::RIGHT)
 	, pos({ WINDOW_WIDTH / 2,WINDOW_HEIGHT / 2 +200}), size_x(300), size_y(300) {
-
+	//Texture_player = Load_Texture_player;
 	anime_size_x = size_x;
 	anime_size_y = size_y;
 	anime_time = 0;
 }
-
 
 void Player::Input_Direction() {
 	if (IsKeyPressed(KEY_A)) {
@@ -22,8 +19,13 @@ void Player::Input_Direction() {
 		anme_state = ChangeDirection;
 	}
 }
+void Player::Input_Select_Weapon() {
+	if (IsKeyPressed(KEY_KP_1)) {
+		attack = base_attack;
+	}
+}
 
-void Player::Input_Attack() {
+void Player::Input_Attack() {   
 	if (IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) {
 		Base_Attack attack;
 		attack.Attack_(*this);
@@ -87,7 +89,6 @@ void Player::Anmation_AD() {
 		anime_size_y += 110 * GetFrameTime();
 	}
 }
-
 
 void Player::Draw() {
 	//DrawRectangle(pos.x, pos.y, size_x, size_y, BLACK);
