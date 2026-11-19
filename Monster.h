@@ -150,7 +150,7 @@ public:
 private:
 	int anime_rotate;
 
-
+	//
 	//virtual funition
 	virtual Rectangle Return_Rect() override;
 
