@@ -55,6 +55,7 @@ int main()
 
         for (auto monster : return_monsters()) {
             collision_bullets(*monster);
+            ///ret
         }
 
         draw_bullets();
