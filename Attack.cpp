@@ -15,7 +15,6 @@ void update_bullets() {
 
 void collision_bullets(Monster& monster) {
 	for (auto bullet : bullets) {
-
 		bullet->collision(monster);
 	}
 }
@@ -43,9 +42,12 @@ void Base_Attack::Attack_Before(Player& player) {
 	Vector2 direction = {1,1};
 	direction.x = (mouse.x - player_pos.x)/10;
 	direction.y = 13;
-
+	int direc_int = 1;
+	if (player.Return_Direc() == LEFT) {
+		direc_int = -1;
+	}
 	
-	Vector2 pos = player_pos;
+	Vector2 pos = { player_pos.x - (100 * direc_int) ,player_pos.y - 120 };
 	float speed = 2;
 	float speed_y = 20;
 	float gravity = 2;
@@ -64,15 +66,13 @@ void Base_Attack::Attack_Before(Player& player) {
 		points.push_back(pos);
 	}
 	for (int i = 0; i < points.size() - 1; i++) {
-		DrawLine(points[i].x, points[i].y, points[i+1].x, points[i+1].y, RED);
+		DrawLine(points[i].x, points[i].y , points[i+1].x, points[i+1].y, RED);
 	}
 
 
 	// 공격전 공격 경로를 보여주는 함수 
 	// 공을 던지고 그경로를 보여줌 미완 
 #pragma region trash
-
-
 
 	//std::vector<Vector2> bazier;
 	//int length = 50;
@@ -108,12 +108,17 @@ void Base_Attack::Attack_(Player& player) {
 	Vector2 mouse = { GetMouseX(),  player.Return_Pos().y };
 	Vector2 player_pos = player.Return_Pos();
 	//Vector2 middle = { (player_pos.x + mouse.x) / 2, 0 };//p1
+	int direc_int = 1;
+	if (player.Return_Direc() == LEFT) {
+		direc_int = -1;
+	}
+	Vector2 pos = { player_pos.x - (100 * direc_int) ,player_pos.y - 120 };
 
 	Vector2 direction = { 1,1 };
 	direction.x = (mouse.x - player_pos.x) / 10;
 	direction.y = 13;//경로 설정
 	
-	bullets.push_back(new Bullet_Mortar({ player_pos.x, player_pos.y }, direction));
+	bullets.push_back(new Bullet_Mortar({ pos.x, pos.y }, direction));
 	//총알 생성
 
 	//총알 생성

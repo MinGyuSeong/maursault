@@ -28,7 +28,7 @@ protected:
 	double attack_coolTime;//공격 쿨타임
 	double attack_timer;//공격 타이머
 
-	double anime_timer=0;
+	double anime_timer = 0;
 
 	Texture2D Texture_monster;
 
@@ -52,7 +52,7 @@ public:
 	virtual void Die_State(Player& player);//hp<0 아무 행동도 하지 않음
 
 	virtual void Attack_Player(Player& player);//Attack_State 플레이어를 공격
-	
+
 	virtual void Draw_anime();
 
 	void Get_Damage(int damage);
@@ -84,6 +84,63 @@ public:
 
 	나름 깔끔하게 보일려고 class랑 헤더파일 써봤는데 이거 때매 더 복잡아진것 같기도 하고 잘모르겠음 ㄷㄷ
 */
+
+class Monster_Dog : public Monster {
+public:
+	Monster_Dog(Vector2 position, Direction direction);
+	~Monster_Dog();
+private:
+	int anime_rotate;
+	//virtual funition
+	virtual Rectangle Return_Rect() override;
+
+	virtual void MoveState(Player& player) override;
+	virtual void Attack_State(Player& player) override;
+	virtual void Die_State(Player& player) override;
+
+	virtual void Attack_Player(Player& player) override;
+
+	virtual void Draw_anime() override;
+};
+
+
+class Monster_Wizard : public Monster {
+public:
+	Monster_Wizard(Vector2 position, Direction direction);
+	~Monster_Wizard();
+private:
+	int anime_rotate;
+	bool attack;
+
+	//virtual funition
+	virtual Rectangle Return_Rect() override;
+
+	virtual void MoveState(Player& player) override;
+	virtual void Attack_State(Player& player) override;
+	virtual void Die_State(Player& player) override;
+
+	virtual void Attack_Player(Player& player) override;
+
+	virtual void Draw_anime() override;
+};
+
+class Monster_Fish : public Monster {
+public:
+	Monster_Fish(Vector2 position, Direction direction);
+	~Monster_Fish();
+private:
+
+	//virtual funition
+	virtual Rectangle Return_Rect() override;
+
+	virtual void MoveState(Player& player) override;
+	virtual void Attack_State(Player& player) override;
+	virtual void Die_State(Player& player) override;
+
+	virtual void Attack_Player(Player& player) override;
+
+	virtual void Draw_anime() override;
+};
 
 
 class Monster_Robot : public Monster {

@@ -59,7 +59,7 @@ int main()
 
         draw_bullets();
         update_bullets();//총알
-
+        DrawRectangle(0, WINDOW_HEIGHT / 3*2, WINDOW_WIDTH, WINDOW_HEIGHT / 5*4, BLACK);
         EndDrawing();
     }
     CloseWindow();
