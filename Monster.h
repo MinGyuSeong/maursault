@@ -110,6 +110,12 @@ private:
 	int anime_rotate;
 	bool attack;
 
+	Rectangle anime_cut;
+
+	Rectangle idle;
+	Rectangle attack_ready;
+	float zoom;
+
 	//virtual funition
 	virtual Rectangle Return_Rect() override;
 

@@ -3,7 +3,7 @@
 Texture2D Texture_playeridle;
 Texture2D Texture_playerattack_motar;
 Texture2D Texture_playerattack_blink;
-
+Texture2D Texture_playerattack_0han;
 void LoadPlayer_Image() {
 	Texture_playeridle = LoadTexture("player.png");
 	Texture_playerattack_motar = LoadTexture("player_motar.png");
@@ -13,10 +13,10 @@ void LoadPlayer_Image() {
 Player::Player()
 	:hp(100), maxhp(100), mp(100), atk(10), def(0), exp(0), level(0), p_direc(Direction::RIGHT)
 	, pos({ WINDOW_WIDTH / 2,WINDOW_HEIGHT / 2 +200}),
-	size{300,300},
+	size{ 300,300 },
 	Texture_player(Texture_playerattack_blink){
 	//Texture_player = Load_Texture_player;
-
+	//size{551/2,565/2}
 	anime_size = size;
 	anime_time = 0;
 
@@ -202,6 +202,7 @@ void Player::Draw() {
 		768.0f * direction,768 },
 		{ pos.x,pos.y,(float)anime_size.x,(float)anime_size.y },
 		{ (float)anime_size.x / 2 ,(float)anime_size.y }, 0.0f, WHITE);
+
 	if (Get_Draw_Collider()) {
 		std::cout << "Draw_Collider player" << std::endl;
 		DrawRectangleLinesEx(
@@ -216,7 +217,6 @@ void Player::Draw() {
 			pos.y,
 			10,RED);
 	}
-
 }
 
 void Player::Player_Ui() {

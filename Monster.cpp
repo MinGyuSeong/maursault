@@ -6,10 +6,16 @@
 //	LEFT
 //};
 Texture2D Texture_monsters;
+
+Texture2D Texture_monster_Dog;
+Texture2D Texture_monster_Wizard;
+Texture2D Texture_monster_Golam;
 void LoadMonster_Image() {
 	Texture_monsters = LoadTexture("monster.png");
+	Texture_monster_Dog = LoadTexture("dog.png");
+	Texture_monster_Wizard = LoadTexture("wizard.png");
+	Texture_monster_Golam = LoadTexture("golam.png");
 }
-
 
 std::vector<Monster*> monsters;
 enum Monster_type
@@ -53,6 +59,8 @@ void spawn_monster() {
 
 	monsters.push_back(new Monster_Wizard({ 1980, WINDOW_HEIGHT / 2 + 200 },
 		Direction::LEFT));
+	//monsters.push_back(new Monster_Wizard({ 0, WINDOW_HEIGHT / 2 + 200 },
+	//	Direction::RIGHT));
 
 	monsters.push_back(new Monster_Dog({ 0, WINDOW_HEIGHT / 2 + 200 },
 		Direction::RIGHT));
@@ -121,8 +129,9 @@ Monster_Golam::Monster_Golam(Vector2 position, Direction direction)
 	this->attack_range = 110;
 	this->attack_coolTime = 4;
 
-	this->size = { 196 / 2, 486 / 2 };
+	this->size = { 191 *1.2 / 2, 285 *1.2 / 2 };
 
+	this->Texture_monster = Texture_monster_Golam;
 
 	////////////
 	this->hp = max_hp;
@@ -159,7 +168,6 @@ void Monster_Golam::MoveState(Player& player) {
 		attack_timer = attack_coolTime / 2;//선 공격 쿨타임
 	}
 }
-
 /*
 attack state가 아닐때 실행안함
 거리가 멀어지면 movestate로 변경
@@ -219,7 +227,6 @@ void Monster_Golam::Draw_anime(float dt) {
 	if (m_direc == RIGHT) {
 		direction = -1;
 	}
-
 	if (m_state) {
 		//anime_rotate = 0;
 		anime_timer = 0;
@@ -249,12 +256,11 @@ void Monster_Golam::Draw_anime(float dt) {
 		if (anime_timer > 0.75 && anime_timer < 0.8) {
 			anime_size.y -= 100 * GetFrameTime();
 		}
-
 	}
 #pragma endregion
 	DrawTexturePro(Texture_monster,
-		{ 616, 726,
-		(float)196 * direction, 486 },
+		{ 0, 0,
+		(float)191 * direction, 285},
 		{ pos.x, pos.y,
 		anime_size.x, anime_size.y },
 		{ anime_size.x / 2, anime_size.y },
@@ -276,7 +282,6 @@ void Monster_Golam::Draw_anime(float dt) {
 		DrawCircle(pos.x, pos.y,
 			10, RED);
 	}
-
 	anime_timer += dt;
 }
 
@@ -289,19 +294,28 @@ Monster_Wizard::Monster_Wizard(Vector2 position, Direction direction)
 	:Monster(position, direction) {
 	this->max_hp = 90;
 	this->atk = 18;
-	this->speed = 8;
+	this->speed = 3;
 
-	this->attack_range = 380;
+	this->attack_range = 480;
 	this->attack_coolTime = 4;
 
-	this->size = { 159 / 2, 220 / 2 };
+	this->Texture_monster = Texture_monster_Wizard;
+
+	this->idle = { 10,7,151,223 };
+	this->attack_ready = { 230,21,383, 207 };
+	this->zoom = 0.8f;
 
 	////////////
 	this->hp = max_hp;
 	this->attack_timer = 0;
 	this->pos = position;
+	this->anime_cut = idle;
+	this->size = { anime_cut.width * zoom, anime_cut.height * zoom }
+	;
 	this->anime_size = size;
 	this->anime_rotate = 0;
+
+
 	this->m_direc = direction;
 	this->m_state = MOVE;
 	this->attack = false;
@@ -320,10 +334,14 @@ void Monster_Wizard::MoveState(Player& player) {
 	else {
 		pos.x -= speed;
 	}
-	if (player.Return_Pos().x <= pos.x + attack_range ||
-		player.Return_Pos().x >= pos.x - attack_range) {
+	if (player.Return_Pos().x < pos.x + attack_range &&
+		player.Return_Pos().x > pos.x - attack_range) {
 		m_state = ATTACK;
 		attack_timer = attack_coolTime / 2;//선 공격 쿨타임
+
+		anime_cut = attack_ready;
+		size = { anime_cut.width * zoom, anime_cut.height * zoom };
+		anime_size = size;
 	}
 }
 
@@ -371,9 +389,20 @@ void Monster_Wizard::Draw_anime(float dt) {
 		direction = -1;
 	}
 
-	if (m_state) {
+	if (m_state == ATTACK) {
 		//anime_rotate = 0;
 		anime_timer = 0;
+		anime_rotate = 0;
+
+		if (attack_coolTime - 0.1 < attack_timer) {
+			anime_size.y -= 200 * GetFrameTime();
+		}
+		else if (attack_timer < 0.1) {
+			anime_size.y += 200 * GetFrameTime();
+		}
+		else   {
+			anime_size.y = size.y;
+		}
 	}
 	else {
 		if (anime_timer < 0.4) {
@@ -381,14 +410,14 @@ void Monster_Wizard::Draw_anime(float dt) {
 				anime_size.x = size.x;
 				anime_size.y = size.y;
 			}
-			anime_rotate = -10;
+			anime_rotate = -5;
 		}
 		else if (anime_timer < 0.8) {
 			if (anime_rotate == -2) {
 				anime_size.x = size.x;
 				anime_size.y = size.y;
 			}
-			anime_rotate = 10;
+			anime_rotate = 5;
 		}
 		else {
 			anime_timer = 0;
@@ -400,12 +429,10 @@ void Monster_Wizard::Draw_anime(float dt) {
 		if (anime_timer > 0.75 && anime_timer < 0.8) {
 			anime_size.y -= 100 * GetFrameTime();
 		}
-
 	}
 #pragma endregion
 	DrawTexturePro(Texture_monster,
-		{ 616, 726,
-		(float)159 * direction, 220 },
+		anime_cut,
 		{ pos.x, pos.y,
 		anime_size.x, anime_size.y },
 		{ anime_size.x / 2, anime_size.y },
@@ -427,7 +454,6 @@ void Monster_Wizard::Draw_anime(float dt) {
 		DrawCircle(pos.x, pos.y,
 			10, RED);
 	}
-
 	anime_timer += dt;
 }
 #pragma endregion
@@ -446,6 +472,7 @@ Monster_Fish::Monster_Fish(Vector2 position, Direction direction)
 	this->size = { 225 / 2, 84 / 2 };
 
 
+	this->Texture_monster = Texture_monster_Wizard;
 	////////////
 	this->hp = max_hp;
 	this->attack_timer = 0;
@@ -539,6 +566,7 @@ Monster_Dog::Monster_Dog(Vector2 position, Direction direction)
 
 	this->size = { 484 / 2.2, 241 / 2.2 };
 
+	this->Texture_monster = Texture_monster_Dog;
 
 	////////////
 	this->hp = max_hp;
