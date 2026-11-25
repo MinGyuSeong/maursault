@@ -75,6 +75,7 @@ void Base_Attack::Attack_Before(Player& player) {
 #pragma region trash
 
 	//std::vector<Vector2> bazier;
+	//Vector2 middle = { (pos.x + mouse.x) / 2 ,10 };
 	//int length = 50;
 	//Vector2 bazier_1;
 	//Vector2 bazier_2;

@@ -21,3 +21,6 @@ ARM64/
 *.ipch
 *.VC.db
 *.VC.opendb
+maursault/x64/Debug/Bullet.obj
+*.obj
+*.log

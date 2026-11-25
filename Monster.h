@@ -32,7 +32,6 @@ protected:
 
 	Texture2D Texture_monster;
 
-
 	Vector2 pos;
 	Direction m_direc;//오른쪽에서 올지 왼쪽애서 올지
 	Monster_State m_state;//스테이트 행동 결정
