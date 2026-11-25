@@ -109,16 +109,16 @@ void Player::Anmation_AD() {
 
 	std::cout << "anime" << std::endl;
 	if (anime_direc_time < 0.1) {
-		anime_size.x -= 50 * GetFrameTime();
-		anime_size.y -= 50 * GetFrameTime();
-	}
-	else if (anime_direc_time < 0.2) {
-		anime_size.x -= 100 * GetFrameTime();
+		anime_size.x -= 5 * GetFrameTime();
 		anime_size.y -= 100 * GetFrameTime();
 	}
+	else if (anime_direc_time < 0.2) {
+		anime_size.x -= 10 * GetFrameTime();
+		anime_size.y -= 150 * GetFrameTime();
+	}
 	else if (anime_direc_time < 0.3) {
-		anime_size.x += 110 * GetFrameTime();
-		anime_size.y += 110 * GetFrameTime();
+		anime_size.x += 30 * GetFrameTime();
+		anime_size.y += 200 * GetFrameTime();
 	}
 }
 
@@ -218,9 +218,6 @@ void Player::Draw() {
 	}
 
 }
-
-
-
 
 void Player::Player_Ui() {
 	//full hp

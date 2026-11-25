@@ -4,7 +4,7 @@
 
 class Player;
 
-void draw_monsters();
+void draw_monsters(float dt);
 void update_monsters(Player& player);
 void spawn_monster();
 
@@ -45,7 +45,7 @@ public:
 	Vector2 Return_Pos();
 
 	void Update(Player& player);
-	void Draw();
+	void Draw(float dt);
 
 	virtual void MoveState(Player& player);//움직임 플레이어에게 다가감
 	virtual void Attack_State(Player& player);//사정거리에 들어오면 공격함 
@@ -53,7 +53,7 @@ public:
 
 	virtual void Attack_Player(Player& player);//Attack_State 플레이어를 공격
 
-	virtual void Draw_anime();
+	virtual void Draw_anime(float dt);
 
 	void Get_Damage(int damage);
 };
@@ -100,9 +100,8 @@ private:
 
 	virtual void Attack_Player(Player& player) override;
 
-	virtual void Draw_anime() override;
+	virtual void Draw_anime(float dt) override;
 };
-
 
 class Monster_Wizard : public Monster {
 public:
@@ -121,7 +120,7 @@ private:
 
 	virtual void Attack_Player(Player& player) override;
 
-	virtual void Draw_anime() override;
+	virtual void Draw_anime(float dt) override;
 };
 
 class Monster_Fish : public Monster {
@@ -139,14 +138,13 @@ private:
 
 	virtual void Attack_Player(Player& player) override;
 
-	virtual void Draw_anime() override;
+	virtual void Draw_anime(float dt) override;
 };
 
-
-class Monster_Robot : public Monster {
+class Monster_Golam : public Monster {
 public:
-	Monster_Robot(Vector2 position, Direction direction);
-	~Monster_Robot();
+	Monster_Golam(Vector2 position, Direction direction);
+	~Monster_Golam();
 private:
 	int anime_rotate;
 
@@ -160,7 +158,7 @@ private:
 
 	virtual void Attack_Player(Player& player) override;
 
-	virtual void Draw_anime() override;
+	virtual void Draw_anime(float dt) override;
 };
 
 std::vector<Monster*> return_monsters();

@@ -51,7 +51,7 @@ int main()
         //    monster->Draw();
         //    monster->Update(player);
         //}//몬스터
-        draw_monsters();
+        draw_monsters(dt);
         update_monsters(player);
 
         for (auto monster : return_monsters()) {
