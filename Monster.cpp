@@ -537,7 +537,7 @@ Monster_Dog::Monster_Dog(Vector2 position, Direction direction)
 	this->attack_range = 100;
 	this->attack_coolTime = 5;
 
-	this->size = { 484 / 3.8, 241 / 3.8 };
+	this->size = { 484 / 2.2, 241 / 2.2 };
 
 
 	////////////
