@@ -28,16 +28,13 @@ private:
 	int level;
 
 	Vector2 pos;
-
-	int size_x;
-	int size_y;
+	Vector2 size;
 
 	bool ChangeDirection;
 
 	Vector2 anime_pos;
+	Vector2 anime_size;
 
-	float anime_size_x;
-	float anime_size_y;
 	double anime_time;
 	double anime_direc_time;
 

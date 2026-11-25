@@ -13,11 +13,11 @@ void LoadPlayer_Image() {
 Player::Player()
 	:hp(100), maxhp(100), mp(100), atk(10), def(0), exp(0), level(0), p_direc(Direction::RIGHT)
 	, pos({ WINDOW_WIDTH / 2,WINDOW_HEIGHT / 2 +200}),
-	size_x(300), size_y(300), 
+	size{300,300},
 	Texture_player(Texture_playerattack_blink){
 	//Texture_player = Load_Texture_player;
-	anime_size_x = size_x;
-	anime_size_y = size_y;
+
+	anime_size = size;
 	anime_time = 0;
 
 	this->attack = new Attack();
@@ -67,8 +67,8 @@ Rectangle Player::Return_Rect() {
 	//DrawRectangle(pos.x - (float)size_x / 2, pos.y - (float)size_y,
 	//	(float)size_x, (float)size_y,RED);
 
-	return { pos.x - (float)size_x/2, pos.y- (float)size_y ,
-		(float)size_x, (float)size_y };
+	return { pos.x - (float)size.x/2, pos.y- (float)size.y ,
+		(float)size.x, (float)size.y};
 }
 
 
@@ -102,20 +102,23 @@ void Player::Anmation_AD() {
 	}
 	else
 	{
-		anime_size_y = size_y;
+		anime_size = size;
 		anime_direc_time = 0;
 		ChangeDirection = false;
 	}
 
 	std::cout << "anime" << std::endl;
 	if (anime_direc_time < 0.1) {
-		anime_size_y -= 50 * GetFrameTime();
+		anime_size.x -= 50 * GetFrameTime();
+		anime_size.y -= 50 * GetFrameTime();
 	}
 	else if (anime_direc_time < 0.2) {
-		anime_size_y -= 100 * GetFrameTime();
+		anime_size.x -= 100 * GetFrameTime();
+		anime_size.y -= 100 * GetFrameTime();
 	}
 	else if (anime_direc_time < 0.3) {
-		anime_size_y += 110 * GetFrameTime();
+		anime_size.x += 110 * GetFrameTime();
+		anime_size.y += 110 * GetFrameTime();
 	}
 }
 
@@ -195,9 +198,25 @@ void Player::Draw() {
 		direction = 1;
 
 	DrawTexturePro(Texture_player,
-		{ anime_pos.x,anime_pos.y,768.0f * direction,768 },
-		{ pos.x,pos.y,(float)anime_size_y,(float)anime_size_y },
-		{ (float)anime_size_y / 2 ,(float)anime_size_y }, 0.0f, WHITE);
+		{ anime_pos.x,anime_pos.y,
+		768.0f * direction,768 },
+		{ pos.x,pos.y,(float)anime_size.x,(float)anime_size.y },
+		{ (float)anime_size.x / 2 ,(float)anime_size.y }, 0.0f, WHITE);
+	if (Get_Draw_Collider()) {
+		std::cout << "Draw_Collider player" << std::endl;
+		DrawRectangleLinesEx(
+			{
+				pos.x - (float)anime_size.x / 2,
+				pos.y - (float)anime_size.y ,
+				(float)anime_size.x,(float)anime_size.y
+			},3,RED
+		);
+		DrawCircle(
+			pos.x,
+			pos.y,
+			10,RED);
+	}
+
 }
 
 

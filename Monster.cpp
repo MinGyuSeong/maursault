@@ -13,9 +13,18 @@ void LoadMonster_Image() {
 
 
 std::vector<Monster*> monsters;
+enum Monster_type
+{
+	FISH
+};
 
-std::vector<Vector2> fish_pos_;
-std::vector<Direction> fish_di;
+struct Monster_spawn
+{
+	Monster_type type;
+	Vector2 pos;
+	Direction dir;
+};
+static std::vector<Monster_spawn> monster_spawn;
 
 void draw_monsters() {
 	for (auto monster : monsters) {
@@ -31,9 +40,9 @@ void update_monsters(Player& player) {
 void spawn_monster() {
 	monsters.push_back(new Monster_Robot({ 0, WINDOW_HEIGHT / 2 + 200 },
 		Direction::RIGHT));
+
 	monsters.push_back(new Monster_Robot({ 1980, WINDOW_HEIGHT / 2 + 200 },
 		Direction::LEFT));
-
 
 	monsters.push_back(new Monster_Wizard({ 1980, WINDOW_HEIGHT / 2 + 200 },
 		Direction::LEFT));
@@ -49,13 +58,10 @@ void spawn_monster() {
 		Direction::LEFT));
 
 
-	if (!fish_pos_.empty()) {
-		Vector2 pos_ = fish_pos_.back();
-		Direction direc_ = fish_di.back();
-		fish_pos_.pop_back();
-		fish_di.pop_back();
-
-		monsters.push_back(new Monster_Fish(pos_, direc_));
+	if (!monster_spawn.empty()) {
+		Monster_spawn monster =monster_spawn.back();
+		monster_spawn.pop_back();
+		monsters.push_back(new Monster_Fish(monster.pos, monster.dir));
 	}
 }
 
@@ -263,7 +269,6 @@ void Monster_Robot::Draw_anime() {
 			anime_size.x = size.x;
 			anime_size.y = size.y;
 		}
-
 	}
 
 	DrawTexturePro(Texture_monster,
@@ -279,7 +284,6 @@ void Monster_Robot::Draw_anime() {
 
 #pragma endregion
 
-
 #pragma region Monster_Wizard
 /// 
 Monster_Wizard::Monster_Wizard(Vector2 position, Direction direction)
@@ -292,7 +296,6 @@ Monster_Wizard::Monster_Wizard(Vector2 position, Direction direction)
 	this->attack_coolTime = 4;
 
 	this->size = { 159 / 2, 220 / 2 };
-
 
 	////////////
 	this->hp = max_hp;
@@ -307,13 +310,6 @@ Monster_Wizard::Monster_Wizard(Vector2 position, Direction direction)
 
 Monster_Wizard::~Monster_Wizard() {}
 
-
-/*
-move 스테이트가 아닐때 실행안함
-방향에 따라 한쪽으로 계속 움직임
-사정거리안에 플레이어가 있으면
-Attack_State변경
-*/
 void Monster_Wizard::MoveState(Player& player) {
 	if (m_state != MOVE)
 	{
@@ -332,14 +328,6 @@ void Monster_Wizard::MoveState(Player& player) {
 	}
 }
 
-/*
-attack state가 아닐때 실행안함
-거리가 멀어지면 movestate로 변경
-쿨타임 제기 시작
-쿨이 돌때마다 플레이어 공격
-
-거리가 멀어지면 movestate로 변경
-*/
 void Monster_Wizard::Attack_State(Player& player) {
 	if (m_state != ATTACK)
 	{
@@ -365,18 +353,8 @@ void Monster_Wizard::Die_State(Player& player) {
 	}
 }
 
-/*플레이어 공격로직
-플레이어 사각형 가져오기
-몬스터 사각형 가져오기
-퉁돌이면 데미지
-
-인데 "몬스터 사각형 가져오기"이걸
-공격 collision 을 따로 만드는 방식으로 바꿀거임
-*/
-
 void Monster_Wizard::Attack_Player(Player& player) {
-	fish_pos_.push_back(pos);
-	fish_di.push_back(m_direc);
+	monster_spawn.push_back(Monster_spawn(FISH, pos, m_direc));
 
 	std::cout << "Monster Attack Player Get Fish " << std::endl;
 	return;
@@ -456,7 +434,6 @@ void Monster_Wizard::Draw_anime() {
 
 #pragma endregion
 
-
 #pragma region Monster_Fish
 /// 
 Monster_Fish::Monster_Fish(Vector2 position, Direction direction)
@@ -515,7 +492,6 @@ void Monster_Fish::Attack_State(Player& player) {
 		pos.x -= speed;
 	}
 
-
 	if (player.Return_Pos().x < pos.x + 4 &&
 		player.Return_Pos().x > pos.x - 4) {
 		player.Get_Damage(atk);
@@ -553,7 +529,6 @@ void Monster_Fish::Draw_anime() {
 }
 #pragma endregion
 
-
 #pragma region Monster_Dog
 Monster_Dog::Monster_Dog(Vector2 position, Direction direction)
 	:Monster(position, direction) {
@@ -564,7 +539,7 @@ Monster_Dog::Monster_Dog(Vector2 position, Direction direction)
 	this->attack_range = 100;
 	this->attack_coolTime = 5;
 
-	this->size = { 616 / 3.8, 724 / 3.8 };
+	this->size = { 484 / 3.8, 241 / 3.8 };
 
 
 	////////////
@@ -578,12 +553,7 @@ Monster_Dog::Monster_Dog(Vector2 position, Direction direction)
 }
 
 Monster_Dog::~Monster_Dog() {}
-/*
-move 스테이트가 아닐때 실행안함
-방향에 따라 한쪽으로 계속 움직임
-사정거리안에 플레이어가 있으면
-Attack_State변경
-*/
+
 void Monster_Dog::MoveState(Player& player) {
 	if (m_state != MOVE)
 	{
@@ -602,14 +572,6 @@ void Monster_Dog::MoveState(Player& player) {
 	}
 }
 
-/*
-attack state가 아닐때 실행안함
-거리가 멀어지면 movestate로 변경
-쿨타임 제기 시작
-쿨이 돌때마다 플레이어 공격
-
-거리가 멀어지면 movestate로 변경
-*/
 void Monster_Dog::Attack_State(Player& player) {
 	if (m_state != ATTACK)
 	{
@@ -635,16 +597,6 @@ void Monster_Dog::Die_State(Player& player) {
 	}
 }
 
-/*플레이어 공격로직
-플레이어 사각형 가져오기
-몬스터 사각형 가져오기
-퉁돌이면 데미지
-
-인데 "몬스터 사각형 가져오기"이걸
-공격 collision 을 따로 만드는 방식으로 바꿀거임
-*/
-
-
 void Monster_Dog::Attack_Player(Player& player) {
 	Rectangle player_rect = player.Return_Rect();
 	Rectangle monster_rect = Return_Rect();
@@ -663,54 +615,67 @@ Rectangle Monster_Dog::Return_Rect() {
 
 void Monster_Dog::Draw_anime() {
 	int direction = 1;
+#pragma region anime
 	if (m_direc == RIGHT) {
 		direction = -1;
 	}
 
 	if (m_state) {
-		anime_rotate = 0;
+		//anime_rotate = 0;
 		anime_timer = 0;
 	}
 	else {
-		if (anime_timer < 0.3) {
-			anime_rotate = -5;
+		if (anime_timer < 0.4) {
+			if (anime_rotate == 12) {
+				anime_size.x = size.x;
+				anime_size.y = size.y;
+			}
+			anime_rotate = -2;
 		}
-		else if (anime_timer < 0.6) {
-			anime_rotate = 5;
+		else if (anime_timer < 0.8) {
+			if (anime_rotate == -2) {
+				anime_size.x = size.x;
+				anime_size.y = size.y;
+			}
+			anime_rotate = 12;
 		}
-		else if (anime_timer > 0.8)
-		{
+		else{
 			anime_timer = 0;
 		}
 
-		if (anime_timer > 0.2 && anime_timer <= 0.2999) {
-			//std::cout << anime_timer << "a" << std::endl;
-			anime_size.x -= 50 * GetFrameTime();
-			anime_size.y -= 300 * GetFrameTime();
+		if (anime_timer > 0.35 && anime_timer < 0.4){
+			anime_size.y -= 100 * GetFrameTime();
 		}
-		else if (anime_timer > 0.32 && anime_timer < 0.4) {
-			//std::cout << anime_timer << "b" << std::endl;
-			anime_size.x = size.x;
-			anime_size.y = size.y;
-		}
-		else if (anime_timer > 0.5 && anime_timer <= 0.5999) {
-			//std::cout << anime_timer << "c" << std::endl;
-			anime_size.x -= 50 * GetFrameTime();
-			anime_size.y -= 300 * GetFrameTime();
-		}
-		else if (anime_timer > 0.62 && anime_timer < 0.7) {
-			//std::cout << anime_timer << "d" << std::endl;
-			anime_size.x = size.x;
-			anime_size.y = size.y;
+		if (anime_timer > 0.75 && anime_timer < 0.8) {
+			anime_size.y -= 100 * GetFrameTime();
 		}
 
 	}
+#pragma endregion
 
 	DrawTexturePro(Texture_monster,
 		{ 616, 726,
-		(float)484 * direction,241 },
-		{ pos.x, pos.y + 60, anime_size.x, anime_size.y },
-		{ 196 / 4,486 / 2 }, anime_rotate, WHITE);
+		(float)484 * direction, 241},
+		{ pos.x, pos.y, 
+		anime_size.x, anime_size.y },
+		{ anime_size.x / 2, anime_size.y },
+		anime_rotate, WHITE);
+
+	if (Get_Draw_Collider()) {
+		std::cout << "Draw_Collider player" << std::endl;
+		DrawRectangleLinesEx(
+			{
+				pos.x - anime_size.x / 2,
+				pos.y - anime_size.y ,
+				anime_size.x,
+				anime_size.y
+			}, 3, RED
+		);
+		DrawCircle(
+			pos.x,
+			pos.y,
+			10, RED);
+	}
 
 	anime_timer += GetFrameTime();
 }

@@ -30,6 +30,7 @@ int main()
 
     while (!WindowShouldClose())
     {
+        float dt = GetFrameTime();
         timer += GetFrameTime();
 		if (timer >=3) {
             //monsters.push_back(new Monster_Robot({ 0, WINDOW_HEIGHT / 2 + 200 },
@@ -42,7 +43,7 @@ int main()
 
         BeginDrawing();
         ClearBackground(RAYWHITE);
-
+        DrawRectangle(0, WINDOW_HEIGHT / 3 * 2+10, WINDOW_WIDTH, WINDOW_HEIGHT / 5 * 4, BLACK);
         player.Draw();
         player.Update();//플레이어
 
@@ -60,8 +61,12 @@ int main()
 
         draw_bullets();
         update_bullets();//총알
-        DrawRectangle(0, WINDOW_HEIGHT / 3*2, WINDOW_WIDTH, WINDOW_HEIGHT / 5*4, BLACK);
+        
         EndDrawing();
+        if (IsKeyPressed(KEY_F1)) {
+            std::cout << "Draw_Collider" << Get_Draw_Collider() << std::endl;
+            change_collider();
+        }
     }
     CloseWindow();
     return 0;

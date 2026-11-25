@@ -20,3 +20,5 @@ enum Direction {
 	LEFT
 };
 
+bool Get_Draw_Collider();
+void change_collider();
