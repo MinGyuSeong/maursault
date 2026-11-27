@@ -5,7 +5,7 @@
 class Monster;
 
 void draw_bullets();
-void update_bullets();
+void update_bullets(float dt);
 void collision_bullets(Monster& monster);
 
 struct Vector2_double
@@ -35,10 +35,10 @@ protected:
 
 	Vector2_double Unit_Vector(Vector2& direction);
 public:
-	virtual void Move();//총알이 낭아가는 경로 함수
+	virtual void Move(float dt);//총알이 낭아가는 경로 함수
 	virtual void collision(Monster& monster);//몬스터와의 충돌 체크 미완
 
-	void Update();//
+	void Update(float dt);//
 	void Draw();
 };
 
@@ -52,7 +52,7 @@ private:
 	float speed_y;
 	float gravity;
 public:
-	virtual void Move() override;
+	virtual void Move(float dt) override;
 	virtual void collision(Monster& monster) override;
 };
 

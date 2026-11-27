@@ -51,9 +51,9 @@ private:
 	void Input_Attack();
 	void Input_Select_Weapon();
 
-	void Anmation_AD();
-	void Animation_Idle();
-	void Animation_Blink();
+	void Anmation_AD(float dt);
+	void Animation_Idle(float dt);
+	void Animation_Blink(float dt);
 
 	void Animation_Change_state(Player_Animation_State state);
 	void Player_Ui();
@@ -64,8 +64,8 @@ public:
 
 	///
 
-	void Update();
-	void Draw();
+	void Update(float dt);
+	void Draw(float dt);
 	void Get_Damage(int damage);
 };
 

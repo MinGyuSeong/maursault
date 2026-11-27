@@ -20,11 +20,7 @@ public:
 	virtual void Attack_(Player& player);//플레이어에서 인풋시 실행 공격 (불렛 생성)
 	virtual void Attack_collision(Player& player);//만들어 놓고 안씀 왜만들었지?
 	
-	void update(Player& player) {
-		Attack_Before(player);
-		Attack_(player);
-		Attack_collision(player);
-	}
+	void update(Player& player);
 	void draw();//만들어 놓고 안씀 쓸데가 없음
 };
 ///////////////

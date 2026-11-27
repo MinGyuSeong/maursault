@@ -7,9 +7,9 @@ void draw_bullets() {
 	}
 }
 
-void update_bullets() {
+void update_bullets(float dt) {
 	for (auto bullet : bullets) {
-		bullet->Update();
+		bullet->Update(dt);
 	}
 }
 
@@ -33,6 +33,13 @@ void Attack::Attack_collision(Player& player) {
 void Attack::draw() {
 
 }
+void Attack::update(Player& player) {
+	Attack_Before(player);
+	Attack_(player);
+	Attack_collision(player);
+}
+
+
 
 //https://rhksgml78.tistory.com/272
 void Base_Attack::Attack_Before(Player& player) {
@@ -128,4 +135,5 @@ void Base_Attack::Attack_(Player& player) {
 }
 
 void Base_Attack::Attack_collision(Player& player) {}
+
 //충돌 체크 

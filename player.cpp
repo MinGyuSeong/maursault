@@ -73,7 +73,7 @@ Rectangle Player::Return_Rect() {
 
 
 //
-void Player::Update() {
+void Player::Update(float dt) {
 	Input_Direction();
 	attack->Attack_Before(*this);
 	Input_Select_Weapon();
@@ -91,14 +91,14 @@ void Player::Get_Damage(int damage) {
 }
 /////////////////////////////////
 
-void Player::Anmation_AD() {
+void Player::Anmation_AD(float dt) {
 	double time = 0.3f;
 	if (!ChangeDirection) {
 		return;
 		//std::cout << "A" << std::endl;
 	}
 	if (anime_direc_time < time) {
-		anime_direc_time += GetFrameTime();
+		anime_direc_time += dt;
 	}
 	else
 	{
@@ -109,31 +109,32 @@ void Player::Anmation_AD() {
 
 	std::cout << "anime" << std::endl;
 	if (anime_direc_time < 0.1) {
-		anime_size.x -= 5 * GetFrameTime();
-		anime_size.y -= 100 * GetFrameTime();
+		anime_size.x -= 5 * dt;
+		anime_size.y -= 100 * dt;
 	}
 	else if (anime_direc_time < 0.2) {
-		anime_size.x -= 10 * GetFrameTime();
-		anime_size.y -= 150 * GetFrameTime();
+		anime_size.x -= 10 * dt;
+		anime_size.y -= 150 * dt;
 	}
 	else if (anime_direc_time < 0.3) {
-		anime_size.x += 30 * GetFrameTime();
-		anime_size.y += 200 * GetFrameTime();
+		anime_size.x += 30 * dt;
+		anime_size.y += 200 * dt;
 	}
 }
+#pragma region idle
 
-void Player::Animation_Idle() {
+void Player::Animation_Idle(float dt) {
 	if (anme_state != idle) {
 		return;
 	}
 	if (anime_time>5.0f) {
 		Animation_Change_state(blink);
 	}
-	anime_time += GetFrameTime();
+	anime_time += dt;
 	anime_pos.x = 0;
 	anime_pos.y = 0;
 }
-void Player::Animation_Blink() {
+void Player::Animation_Blink(float dt) {
 	if (anme_state != blink) {
 		return;
 	}
@@ -173,8 +174,9 @@ void Player::Animation_Blink() {
 	else if (anime_time < 1.1f) {
 		Animation_Change_state(idle);//1
 	}
-	anime_time += GetFrameTime();
+	anime_time += dt;
 }
+#pragma endregion
 
 void Player::Animation_Change_state(Player_Animation_State state) {
 	anime_pos.x = 0;
@@ -184,11 +186,12 @@ void Player::Animation_Change_state(Player_Animation_State state) {
 	anme_state = state;
 }
 
-void Player::Draw() {
+void Player::Draw(float dt) {
+
 	//DrawRectangle(pos.x, pos.y, size_x, size_y, BLACK);
-	Anmation_AD();
-	Animation_Idle();
-	Animation_Blink();
+	Anmation_AD(dt);
+	Animation_Idle(dt);
+	Animation_Blink(dt);
 	//DrawTexturePro();
 	
 	int direction = 1;

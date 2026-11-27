@@ -5,7 +5,7 @@
 class Player;
 
 void draw_monsters(float dt);
-void update_monsters(Player& player);
+void update_monsters(float dt, Player& player);
 void spawn_monster();
 
 void LoadMonster_Image();
@@ -43,14 +43,14 @@ public:
 	virtual Rectangle Return_Rect();
 	Vector2 Return_Pos();
 
-	void Update(Player& player);
+	void Update(float dt, Player& player);
 	void Draw(float dt);
 
-	virtual void MoveState(Player& player);//움직임 플레이어에게 다가감
-	virtual void Attack_State(Player& player);//사정거리에 들어오면 공격함 
-	virtual void Die_State(Player& player);//hp<0 아무 행동도 하지 않음
+	virtual void MoveState(float dt,Player& player);//움직임 플레이어에게 다가감
+	virtual void Attack_State(float dt, Player& player);//사정거리에 들어오면 공격함 
+	virtual void Die_State(float dt, Player& player);//hp<0 아무 행동도 하지 않음
 
-	virtual void Attack_Player(Player& player);//Attack_State 플레이어를 공격
+	virtual void Attack_Player(float dt, Player& player);//Attack_State 플레이어를 공격
 
 	virtual void Draw_anime(float dt);
 
@@ -100,11 +100,11 @@ private:
 	//virtual funition
 	virtual Rectangle Return_Rect() override;
 
-	virtual void MoveState(Player& player) override;
-	virtual void Attack_State(Player& player) override;
-	virtual void Die_State(Player& player) override;
+	virtual void MoveState(float dt, Player& player) override;
+	virtual void Attack_State(float dt, Player& player) override;
+	virtual void Die_State(float dt, Player& player) override;
 
-	virtual void Attack_Player(Player& player) override;
+	virtual void Attack_Player(float dt, Player& player) override;
 
 	virtual void Draw_anime(float dt) override;
 };
@@ -126,11 +126,11 @@ private:
 	//virtual funition
 	virtual Rectangle Return_Rect() override;
 
-	virtual void MoveState(Player& player) override;
-	virtual void Attack_State(Player& player) override;
-	virtual void Die_State(Player& player) override;
+	virtual void MoveState(float dt, Player& player) override;
+	virtual void Attack_State(float dt, Player& player) override;
+	virtual void Die_State(float dt, Player& player) override;
 
-	virtual void Attack_Player(Player& player) override;
+	virtual void Attack_Player(float dt, Player& player) override;
 
 	virtual void Draw_anime(float dt) override;
 };
@@ -144,11 +144,11 @@ private:
 	//virtual funition
 	virtual Rectangle Return_Rect() override;
 
-	virtual void MoveState(Player& player) override;
-	virtual void Attack_State(Player& player) override;
-	virtual void Die_State(Player& player) override;
+	virtual void MoveState(float dt, Player& player) override;
+	virtual void Attack_State(float dt, Player& player) override;
+	virtual void Die_State(float dt, Player& player) override;
 
-	virtual void Attack_Player(Player& player) override;
+	virtual void Attack_Player(float dt, Player& player) override;
 
 	virtual void Draw_anime(float dt) override;
 };
@@ -164,11 +164,11 @@ private:
 	//virtual funition
 	virtual Rectangle Return_Rect() override;
 
-	virtual void MoveState(Player& player) override;
-	virtual void Attack_State(Player& player) override;
-	virtual void Die_State(Player& player) override;
+	virtual void MoveState(float dt, Player& player) override;
+	virtual void Attack_State(float dt, Player& player) override;
+	virtual void Die_State(float dt, Player& player) override;
 
-	virtual void Attack_Player(Player& player) override;
+	virtual void Attack_Player(float dt, Player& player) override;
 
 	virtual void Draw_anime(float dt) override;
 };

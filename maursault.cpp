@@ -44,15 +44,15 @@ int main()
         BeginDrawing();
         ClearBackground(RAYWHITE);
         DrawRectangle(0, WINDOW_HEIGHT / 3 * 2+10, WINDOW_WIDTH, WINDOW_HEIGHT / 5 * 4, BLACK);
-        player.Draw();
-        player.Update();//플레이어
+        player.Draw(dt);
+        player.Update(dt);//플레이어
 
         //for (auto monster : monsters) {
         //    monster->Draw();
         //    monster->Update(player);
         //}//몬스터
         draw_monsters(dt);
-        update_monsters(player);
+        update_monsters(dt,player);
 
         for (auto monster : return_monsters()) {
             collision_bullets(*monster);
@@ -60,7 +60,7 @@ int main()
         }
 
         draw_bullets();
-        update_bullets();//총알
+        update_bullets(dt);//총알
         
         EndDrawing();
         if (IsKeyPressed(KEY_F1)) {

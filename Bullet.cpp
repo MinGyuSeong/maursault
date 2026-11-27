@@ -11,14 +11,14 @@ Bullet::Bullet(Vector2 pos, Vector2 direction)
 
 Bullet::~Bullet() {}
 
-void Bullet::Move() {
+void Bullet::Move(float dt) {
 
 }
 void Bullet::collision(Monster& monster) {
 
 }
-void Bullet::Update() {
-	Move();
+void Bullet::Update(float dt) {
+	Move(dt);
 
 	//https://life-with-coding.tistory.com/305
 	for (auto mon : checkcol) {
@@ -27,7 +27,7 @@ void Bullet::Update() {
 			continue;
 		}
 
-		mon.second -= GetFrameTime();
+		mon.second -= dt;
 		if (mon.second <= 0) {
 			checkcol.erase(mon.first);
 		}
@@ -61,11 +61,11 @@ Bullet_Mortar::~Bullet_Mortar() {
 }
 //https://www.omnicalculator.com/physics/trajectory-projectile-motion
 //https://www.reddit.com/r/gamedev/comments/vb47cp/formula_for_an_arching_trajectory_for_2d_game/
-void Bullet_Mortar::Move() {
-	pos.x += direction.x * speed * GetFrameTime() * 4;
-	pos.y -= direction.y * speed_y * GetFrameTime() *4;
-	pos.y += direction.y * gravity/2 * GetFrameTime() * 4;
-	gravity += gravity * GetFrameTime() * 4;
+void Bullet_Mortar::Move(float dt) {
+	pos.x += direction.x * speed * dt * 4;
+	pos.y -= direction.y * speed_y * dt *4;
+	pos.y += direction.y * gravity/2 * dt * 4;
+	gravity += gravity * dt * 4;
 	if (gravity > 200) {
 		gravity = 200;
 	}
