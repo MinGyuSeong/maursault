@@ -89,6 +89,13 @@ public:
 	Monster_Dog(Vector2 position, Direction direction);
 	~Monster_Dog();
 private:
+	Rectangle anime_cut;
+
+	Rectangle idle_img;
+	Rectangle attack_1_img;
+	Rectangle attack_2_img;
+
+	float zoom;
 	int anime_rotate;
 	//virtual funition
 	virtual Rectangle Return_Rect() override;
@@ -112,8 +119,8 @@ private:
 
 	Rectangle anime_cut;
 
-	Rectangle idle;
-	Rectangle attack_ready;
+	Rectangle idle_img;
+	Rectangle attack_ready_img;
 	float zoom;
 
 	//virtual funition

@@ -301,15 +301,15 @@ Monster_Wizard::Monster_Wizard(Vector2 position, Direction direction)
 
 	this->Texture_monster = Texture_monster_Wizard;
 
-	this->idle = { 10,7,151,223 };
-	this->attack_ready = { 230,21,383, 207 };
+	this->idle_img = { 10,7,151,223 };
+	this->attack_ready_img = { 230,21,383, 207 };
 	this->zoom = 0.8f;
 
 	////////////
 	this->hp = max_hp;
 	this->attack_timer = 0;
 	this->pos = position;
-	this->anime_cut = idle;
+	this->anime_cut = idle_img;
 	this->size = { anime_cut.width * zoom, anime_cut.height * zoom }
 	;
 	this->anime_size = size;
@@ -339,7 +339,7 @@ void Monster_Wizard::MoveState(Player& player) {
 		m_state = ATTACK;
 		attack_timer = attack_coolTime / 2;//선 공격 쿨타임
 
-		anime_cut = attack_ready;
+		anime_cut = attack_ready_img;
 		size = { anime_cut.width * zoom, anime_cut.height * zoom };
 		anime_size = size;
 	}
@@ -400,7 +400,7 @@ void Monster_Wizard::Draw_anime(float dt) {
 		else if (attack_timer < 0.1) {
 			anime_size.y += 200 * GetFrameTime();
 		}
-		else   {
+		else {
 			anime_size.y = size.y;
 		}
 	}
@@ -432,7 +432,12 @@ void Monster_Wizard::Draw_anime(float dt) {
 	}
 #pragma endregion
 	DrawTexturePro(Texture_monster,
-		anime_cut,
+		{
+			anime_cut.x * direction,
+			anime_cut.y,
+			anime_cut.width,
+			anime_cut.height
+		},
 		{ pos.x, pos.y,
 		anime_size.x, anime_size.y },
 		{ anime_size.x / 2, anime_size.y },
