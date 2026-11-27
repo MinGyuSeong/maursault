@@ -2,7 +2,10 @@
 
 
 Bullet::Bullet(Vector2 pos, Vector2 direction)
-	: pos(pos), direction(direction), speed(5.0f), size_x(10), size_y(10) {
+	: pos(pos), direction(direction), speed(5.0f),
+	size({
+		10,10
+		}) {
 	direction_unit = {
 		direction.x / sqrt(direction.x * direction.x + direction.y * direction.y),
 		direction.y / sqrt(direction.x * direction.x + direction.y * direction.y)
@@ -35,14 +38,14 @@ void Bullet::Update(float dt) {
 	}//몬스터와 충돌시 쿨타임을 줌
 }
 void Bullet::Draw() {
-	DrawRectangle(pos.x, pos.y, size_x, size_y, BLACK);
+	DrawRectangle(pos.x, pos.y, size.x, size.y, BLACK);
 }
 
 Vector2_double Bullet::Unit_Vector(Vector2& direction) {
 	double unit = sqrt(direction.x * direction.x + direction.y * direction.y);
 	return { (double)direction.x / unit, (double)direction.y / unit };
 }
-
+#pragma region immortar
 Bullet_Mortar::Bullet_Mortar(Vector2 pos, Vector2 direction):
 	Bullet(pos, direction) {
 	this->pos = pos;
@@ -98,3 +101,18 @@ void Bullet_Mortar::collision(Monster& monster) {
 		std::cout << "Bullet Attack Monster" << std::endl;
 	}
 }
+#pragma endregion
+
+#pragma region PUSH
+Bullet_Push::Bullet_Push(Vector2 pos, Vector2 direction) 
+	:Bullet(pos,direction){
+	this->atk = 1;
+}
+
+
+void Bullet_Push
+
+
+
+
+#pragma endregion

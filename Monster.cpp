@@ -49,7 +49,35 @@ void update_monsters(float dt, Player& player) {
 		monster->Update(dt,player);
 	}
 }
+void Monster::Get_Force(Vector2 add_force) {
+	get_force = add_force;
+}
+void Monster::Update_Force(float dt) {
+	if ((abs(get_force.x) < 3 && abs(get_force.y) < 3)) {
+		get_force.x = 0;
+		get_force.y = 0;
+		return;
+	}
 
+	pos.x += get_force.x *dt;
+	pos.y += get_force.y *dt;
+
+	if (get_force.x > 0) {
+		get_force.x -= get_force.x / 100;
+	}
+	else
+	{
+		get_force.x += get_force.x / 100;
+	}
+
+	if (get_force.y > 0) {
+		get_force.y -= get_force.y / 100;
+	}
+	else
+	{
+		get_force.y += get_force.y / 100;
+	}
+}
 void spawn_monster() {
 	monsters.push_back(new Monster_Golam({ 0, WINDOW_HEIGHT / 2 + 200 },
 		Direction::RIGHT));
@@ -101,6 +129,9 @@ void Monster::Update(float dt, Player& player) {
 	MoveState(dt,player);
 	Attack_State(dt,player);
 	Die_State(dt,player);
+
+	//
+	Update_Force(dt);
 }
 void Monster::Draw(float dt) {
 	if (Monster_State::DIE == m_state) {
@@ -614,7 +645,6 @@ void Monster_Dog::Attack_State(float dt, Player& player) {
 	}
 	if (attack_timer >= attack_coolTime) {
 		//std::cout << "Getcool" << std::endl;
-		attack_timer = 0;
 		Attack_Player(dt,player);
 		return;
 	}
@@ -630,11 +660,15 @@ void Monster_Dog::Die_State(float dt, Player& player) {
 void Monster_Dog::Attack_Player(float dt, Player& player) {
 	Rectangle player_rect = player.Return_Rect();
 	Rectangle monster_rect = Return_Rect();
+
+	
+
 	if (CheckCollisionRecs(player_rect, monster_rect)) {
 		player.Get_Damage(atk);
 		//std::cout << "Dog Monster Attack Player" << std::endl;
 		return;
 	}
+	attack_timer = 0;
 	//std::cout << "Dog Try Attack" << std::endl;
 	return;
 }

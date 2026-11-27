@@ -40,7 +40,7 @@ void Attack::update(Player& player) {
 }
 
 
-
+#pragma region mortar
 //https://rhksgml78.tistory.com/272
 void Base_Attack::Attack_Before(Player& player) {
 	Vector2 mouse = {GetMouseX(),  player.Return_Pos().y};
@@ -135,5 +135,17 @@ void Base_Attack::Attack_(Player& player) {
 }
 
 void Base_Attack::Attack_collision(Player& player) {}
+#pragma endregion
+
+#pragma region PUSH
+
+void Push_Attack::Attack_Before(Player& player) {
+	DrawRectangle(player.Return_Pos().x, player.Return_Pos().y + 50,
+		100, 50,BLACK
+	);
+}
+
+
+#pragma endregion
 
 //충돌 체크 

@@ -21,7 +21,7 @@ int main()
     //ToggleFullscreen();
 	LoadPlayer_Image();
 	LoadMonster_Image();
-
+    
 	Player player;
 
     SetTargetFPS(SET_FrameRate);

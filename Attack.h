@@ -24,7 +24,6 @@ public:
 	void draw();//만들어 놓고 안씀 쓸데가 없음
 };
 ///////////////
-
 class Base_Attack : public Attack {
 public:
 	Base_Attack(){}
@@ -35,5 +34,18 @@ public:
 	virtual void Attack_(Player& player) override;
 	virtual void Attack_collision(Player& player) override;
 };
+
+class Push_Attack : public Attack {
+public:
+	Push_Attack() {}
+	~Push_Attack() {}
+private:
+public:
+	virtual void Attack_Before(Player& player) override;
+	virtual void Attack_(Player& player) override;
+	virtual void Attack_collision(Player& player) override;
+};
+
+
 
 #endif

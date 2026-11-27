@@ -36,12 +36,14 @@ protected:
 	Direction m_direc;//오른쪽에서 올지 왼쪽애서 올지
 	Monster_State m_state;//스테이트 행동 결정
 
-
 	Vector2 size;
 	Vector2 anime_size;
+
+	Vector2 get_force;
 public:
 	virtual Rectangle Return_Rect();
 	Vector2 Return_Pos();
+	void Get_Force(Vector2 add_foce);
 
 	void Update(float dt, Player& player);
 	void Draw(float dt);
@@ -55,6 +57,8 @@ public:
 	virtual void Draw_anime(float dt);
 
 	void Get_Damage(int damage);
+private:
+	void Update_Force(float dt);
 };
 //------------
 /*

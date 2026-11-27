@@ -29,6 +29,7 @@ protected:
 
 	int size_x;
 	int size_y;
+	Vector2 size;
 
 	std::map<Monster*, double> checkcol;
 	double atk_cooltime;
@@ -41,7 +42,6 @@ public:
 	void Update(float dt);//
 	void Draw();
 };
-
 
 class Bullet_Mortar :public Bullet
 {
@@ -56,3 +56,14 @@ public:
 	virtual void collision(Monster& monster) override;
 };
 
+
+
+class Bullet_Push :public Bullet
+{
+public:
+	Bullet_Push(Vector2 pos, Vector2 direction);
+	~Bullet_Push();
+
+	virtual void Move(float dt) override;
+	virtual void collision(Monster& monster) override;
+};
