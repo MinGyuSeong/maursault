@@ -38,9 +38,9 @@ protected:
 public:
 	virtual void Move(float dt);//총알이 낭아가는 경로 함수
 	virtual void collision(Monster& monster);//몬스터와의 충돌 체크 미완
-
+	virtual void draw_bullet(float dt);
 	void Update(float dt);//
-	void Draw();
+	void Draw(float dt);
 };
 
 class Bullet_Mortar :public Bullet
@@ -54,16 +54,18 @@ private:
 public:
 	virtual void Move(float dt) override;
 	virtual void collision(Monster& monster) override;
+	virtual void draw_bullet(float dt) override;
 };
-
-
 
 class Bullet_Push :public Bullet
 {
 public:
+	float cool;
+
 	Bullet_Push(Vector2 pos, Vector2 direction);
 	~Bullet_Push();
 
 	virtual void Move(float dt) override;
 	virtual void collision(Monster& monster) override;
+	virtual void draw_bullet(float dt) override;
 };

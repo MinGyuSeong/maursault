@@ -1,9 +1,9 @@
 #include "Attack.h"
 
 std::vector<Bullet*> bullets;
-void draw_bullets() {
+void draw_bullets(float dt) {
 	for (auto bullet : bullets) {
-		bullet->Draw();
+		bullet->Draw(dt);
 	}
 }
 
@@ -145,6 +145,11 @@ void Push_Attack::Attack_Before(Player& player) {
 	);
 }
 
+void Push_Attack::draw_bullet(float dt) {
+	DrawRectangle(player.Return_Pos().x, player.Return_Pos().y + 50,
+		100, 50, BLACK
+	);
+}
 
 #pragma endregion
 

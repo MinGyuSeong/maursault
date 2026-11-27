@@ -14,12 +14,9 @@ Bullet::Bullet(Vector2 pos, Vector2 direction)
 
 Bullet::~Bullet() {}
 
-void Bullet::Move(float dt) {
-
-}
-void Bullet::collision(Monster& monster) {
-
-}
+void Bullet::Move(float dt) {}
+void Bullet::collision(Monster& monster) {}
+void Bullet::draw_bullet(float dt) {}
 void Bullet::Update(float dt) {
 	Move(dt);
 
@@ -37,7 +34,8 @@ void Bullet::Update(float dt) {
 		//std::cout << "why " << std::endl;
 	}//몬스터와 충돌시 쿨타임을 줌
 }
-void Bullet::Draw() {
+void Bullet::Draw(float dt) {
+	
 	DrawRectangle(pos.x, pos.y, size.x, size.y, BLACK);
 }
 
@@ -107,12 +105,38 @@ void Bullet_Mortar::collision(Monster& monster) {
 Bullet_Push::Bullet_Push(Vector2 pos, Vector2 direction) 
 	:Bullet(pos,direction){
 	this->atk = 1;
+
 }
 
+void Bullet_Push::Move(float dt) {
+	cool += dt;
 
-void Bullet_Push
+	DrawRectangle(100,100,100,100,BLACK);
 
+	if (cool>0.5) {
+		pos.y = 10000;
+	}
+}
 
+void Bullet_Push::collision(Monster& monster) {
+	Rectangle bullet_rect = { pos.x, pos.y, (float)size_x, (float)size_y };
+	Rectangle monster_rect = monster.Return_Rect();
 
+	if (CheckCollisionRecs(bullet_rect, monster_rect)) {
+		if (checkcol.find(&monster) != checkcol.end())
+		{
+			std::cout << "Bullet Attack Monster CoolTime" << std::endl;
+			return;
+		}
 
+		checkcol.insert({ &monster, 0.1f });
+		monster.Get_Force({ 300,50 });
+		monster.Get_Damage(atk);
+		std::cout << "Bullet Attack Monster" << std::endl;
+	}
+}
+void Bullet_Push::draw_bullet(float dt) {
+	DrawRectangle(pos.x,pos.y,10,10,RED);
+}
 #pragma endregion
+
