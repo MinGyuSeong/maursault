@@ -30,14 +30,14 @@ void Attack::Attack_(Player& player) {
 void Attack::Attack_collision(Player& player) {
 
 }
-void Attack::draw() {
-
-}
-void Attack::update(Player& player) {
-	Attack_Before(player);
-	Attack_(player);
-	Attack_collision(player);
-}
+//void Attack::draw() {
+//
+//}
+//void Attack::update(Player& player) {
+//	Attack_Before(player);
+//	Attack_(player);
+//	Attack_collision(player);
+//}
 
 
 #pragma region mortar
@@ -138,19 +138,21 @@ void Base_Attack::Attack_collision(Player& player) {}
 #pragma endregion
 
 #pragma region PUSH
-
 void Push_Attack::Attack_Before(Player& player) {
-	DrawRectangle(player.Return_Pos().x, player.Return_Pos().y + 50,
-		100, 50,BLACK
+	DrawRectangle(player.Return_Pos().x, player.Return_Pos().y,
+		100, 500,BLACK
 	);
 }
 
-void Push_Attack::draw_bullet(float dt) {
+void Push_Attack::Attack_(Player& player) {
 	DrawRectangle(player.Return_Pos().x, player.Return_Pos().y + 50,
 		100, 50, BLACK
 	);
 }
 
+void Push_Attack::Attack_collision(Player& player) {
+	
+}
 #pragma endregion
 
 //충돌 체크 

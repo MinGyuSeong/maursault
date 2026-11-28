@@ -99,6 +99,11 @@ void Bullet_Mortar::collision(Monster& monster) {
 		std::cout << "Bullet Attack Monster" << std::endl;
 	}
 }
+
+void Bullet_Mortar::draw_bullet(float dt) {
+	DrawRectangle(pos.x, pos.y, 10, 10, RED);
+}
+
 #pragma endregion
 
 #pragma region PUSH
@@ -135,8 +140,10 @@ void Bullet_Push::collision(Monster& monster) {
 		std::cout << "Bullet Attack Monster" << std::endl;
 	}
 }
+
 void Bullet_Push::draw_bullet(float dt) {
-	DrawRectangle(pos.x,pos.y,10,10,RED);
+	DrawRectangle(pos.x,pos.y,100,10,RED);
 }
+
 #pragma endregion
 

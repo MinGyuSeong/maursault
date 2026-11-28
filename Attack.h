@@ -46,6 +46,4 @@ public:
 	virtual void Attack_collision(Player& player) override;
 };
 
-
-
 #endif

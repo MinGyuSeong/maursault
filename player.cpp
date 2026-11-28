@@ -3,7 +3,7 @@
 Texture2D Texture_playeridle;
 Texture2D Texture_playerattack_motar;
 Texture2D Texture_playerattack_blink;
-Texture2D Texture_playerattack_0han;
+
 void LoadPlayer_Image() {
 	Texture_playeridle = LoadTexture("player.png");
 	Texture_playerattack_motar = LoadTexture("player_motar.png");
@@ -21,12 +21,61 @@ Player::Player()
 	anime_time = 0;
 
 	this->attack = new Attack();
+	
 	this->base_attack = new Base_Attack();
+	this->push_attack = new Push_Attack();
 	this->attack_null = new Attack();
+
 	this->hp = maxhp;
 	ChangeDirection = false;
 }
 
+void Player::Update(float dt) {
+	Input_Direction();
+	attack->Attack_Before(*this);
+	Input_Select_Weapon();
+	Player_Ui();
+	Input_Attack();//에택 다양한 무기로 공격할 예정
+
+	//기초 미완
+}
+
+void Player::Draw(float dt) {
+	//DrawRectangle(pos.x, pos.y, size_x, size_y, BLACK);
+	Anmation_AD(dt);
+	Animation_Idle(dt);
+	Animation_Blink(dt);
+	//DrawTexturePro();
+
+	int direction = 1;
+	if (p_direc == Direction::LEFT)
+		direction = -1;
+	else
+		direction = 1;
+
+	DrawTexturePro(Texture_player,
+		{ anime_pos.x,anime_pos.y,
+		768.0f * direction,768 },
+		{ pos.x,pos.y,(float)anime_size.x,(float)anime_size.y },
+		{ (float)anime_size.x / 2 ,(float)anime_size.y }, 0.0f, WHITE);
+
+	if (Get_Draw_Collider()) {
+		std::cout << "Draw_Collider player" << std::endl;
+		DrawRectangleLinesEx(
+			{
+				pos.x - (float)anime_size.x / 2,
+				pos.y - (float)anime_size.y ,
+				(float)anime_size.x,(float)anime_size.y
+			}, 3, RED
+		);
+		DrawCircle(
+			pos.x,
+			pos.y,
+			10, RED);
+	}
+}
+
+#pragma region input
 void Player::Input_Direction() {
 	if (IsKeyPressed(KEY_A)) {
 		p_direc = Direction::RIGHT;
@@ -37,6 +86,7 @@ void Player::Input_Direction() {
 		ChangeDirection = true;
 	}
 }
+
 void Player::Input_Select_Weapon() {
 	if (IsKeyPressed(KEY_ONE)) {
 		Texture_player =Texture_playerattack_motar;
@@ -48,6 +98,11 @@ void Player::Input_Select_Weapon() {
 		attack = attack_null;
 		Animation_Change_state(idle);
 	}
+	if (IsKeyPressed(KEY_TWO)) {
+		Texture_player = Texture_playerattack_motar;
+		attack = push_attack;
+		Animation_Change_state(attack_push);
+	}
 }
 
 void Player::Input_Attack() {   
@@ -55,8 +110,9 @@ void Player::Input_Attack() {
 		attack->Attack_(*this);
 	}//공격 실행 attack을 실행
 }
-
+#pragma endregion
 //
+
 Vector2 Player::Return_Pos() {
 	return pos;
 }
@@ -71,26 +127,14 @@ Rectangle Player::Return_Rect() {
 		(float)size.x, (float)size.y};
 }
 
-
-//
-void Player::Update(float dt) {
-	Input_Direction();
-	attack->Attack_Before(*this);
-	Input_Select_Weapon();
-	Player_Ui();
-	Input_Attack();//에택 다양한 무기로 공격할 예정
-
-	//기초 미완
-}
-
 void Player::Get_Damage(int damage) {
 	hp -= damage;
 	if (hp < 0) {
 		hp = 0;
-	}	
+	}
 }
 /////////////////////////////////
-
+#pragma region anime
 void Player::Anmation_AD(float dt) {
 	double time = 0.3f;
 	if (!ChangeDirection) {
@@ -121,7 +165,6 @@ void Player::Anmation_AD(float dt) {
 		anime_size.y += 200 * dt;
 	}
 }
-#pragma region idle
 
 void Player::Animation_Idle(float dt) {
 	if (anme_state != idle) {
@@ -176,8 +219,6 @@ void Player::Animation_Blink(float dt) {
 	}
 	anime_time += dt;
 }
-#pragma endregion
-
 void Player::Animation_Change_state(Player_Animation_State state) {
 	anime_pos.x = 0;
 	anime_pos.y = 0;
@@ -186,41 +227,7 @@ void Player::Animation_Change_state(Player_Animation_State state) {
 	anme_state = state;
 }
 
-void Player::Draw(float dt) {
-
-	//DrawRectangle(pos.x, pos.y, size_x, size_y, BLACK);
-	Anmation_AD(dt);
-	Animation_Idle(dt);
-	Animation_Blink(dt);
-	//DrawTexturePro();
-	
-	int direction = 1;
-	if (p_direc == Direction::LEFT)
-		direction = -1;
-	else
-		direction = 1;
-
-	DrawTexturePro(Texture_player,
-		{ anime_pos.x,anime_pos.y,
-		768.0f * direction,768 },
-		{ pos.x,pos.y,(float)anime_size.x,(float)anime_size.y },
-		{ (float)anime_size.x / 2 ,(float)anime_size.y }, 0.0f, WHITE);
-
-	if (Get_Draw_Collider()) {
-		std::cout << "Draw_Collider player" << std::endl;
-		DrawRectangleLinesEx(
-			{
-				pos.x - (float)anime_size.x / 2,
-				pos.y - (float)anime_size.y ,
-				(float)anime_size.x,(float)anime_size.y
-			},3,RED
-		);
-		DrawCircle(
-			pos.x,
-			pos.y,
-			10,RED);
-	}
-}
+#pragma endregion
 
 void Player::Player_Ui() {
 	//full hp
@@ -228,7 +235,6 @@ void Player::Player_Ui() {
 		{ 70, 70, 500 , 50 },
 		{ 0, 0 }, 0, GRAY
 	);
-
 	//current hp
 	DrawRectanglePro(
 		{ 70, 70, (float)hp / maxhp * 500 , 50 },

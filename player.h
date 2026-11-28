@@ -4,12 +4,14 @@
 #include"Attack.h"
 class Attack;
 class Base_Attack;
+class Push_Attack;
 
 enum Player_Animation_State
 {
 	idle,
 	blink,
 	attack_mortar,
+	attack_push
 };
 
 void LoadPlayer_Image();
@@ -44,6 +46,7 @@ private:
 	Attack* attack;
 	Attack* attack_null;
 	Base_Attack* base_attack;
+	Push_Attack* push_attack;
 
 	Player_Animation_State anme_state;
 

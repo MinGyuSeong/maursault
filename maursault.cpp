@@ -59,7 +59,7 @@ int main()
             ///ret
         }
 
-        draw_bullets();
+        draw_bullets(dt);
         update_bullets(dt);//총알
         
         EndDrawing();

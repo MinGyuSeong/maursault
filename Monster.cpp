@@ -78,6 +78,7 @@ void Monster::Update_Force(float dt) {
 		get_force.y += get_force.y / 100;
 	}
 }
+
 void spawn_monster() {
 	monsters.push_back(new Monster_Golam({ 0, WINDOW_HEIGHT / 2 + 200 },
 		Direction::RIGHT));
@@ -87,8 +88,8 @@ void spawn_monster() {
 
 	monsters.push_back(new Monster_Wizard({ 1980, WINDOW_HEIGHT / 2 + 200 },
 		Direction::LEFT));
-	//monsters.push_back(new Monster_Wizard({ 0, WINDOW_HEIGHT / 2 + 200 },
-	//	Direction::RIGHT));
+	monsters.push_back(new Monster_Wizard({ 0, WINDOW_HEIGHT / 2 + 200 },
+		Direction::RIGHT));
 
 	monsters.push_back(new Monster_Dog({ 0, WINDOW_HEIGHT / 2 + 200 },
 		Direction::RIGHT));
@@ -107,11 +108,11 @@ std::vector<Monster*> return_monsters() {
 
 Monster::Monster(Vector2 position, Direction direction) :
 	max_hp(100), hp(100), atk(10),
-	speed(5.0f), attack_range(5.0f),
+	speed(5.0f), attack_range(5.0f), get_force(0),
 	pos(position), m_direc(direction),
 	Texture_monster(Texture_monsters),
 	size({ 100,100 }),
-	anime_size({ 100,100 }) {}
+	anime_size({ 100,100 }){}
 Monster::~Monster() {}
 
 void Monster::MoveState(float dt, Player& player) {}
@@ -155,7 +156,7 @@ Monster_Golam::Monster_Golam(Vector2 position, Direction direction)
 	:Monster(position, direction) {
 	this->max_hp = 100;
 	this->atk = 10;
-	this->speed = 5;
+	this->speed = 100;
 
 	this->attack_range = 110;
 	this->attack_coolTime = 4;
@@ -258,9 +259,11 @@ void Monster_Golam::Draw_anime(float dt) {
 	if (m_direc == RIGHT) {
 		direction = -1;
 	}
-	if (m_state) {
+	if (m_state== ATTACK) {
 		//anime_rotate = 0;
 		anime_timer = 0;
+
+
 	}
 	else {
 		if (anime_timer < 0.4) {
@@ -268,24 +271,24 @@ void Monster_Golam::Draw_anime(float dt) {
 				anime_size.x = size.x;
 				anime_size.y = size.y;
 			}
-			anime_rotate = -10;
+			anime_rotate = -2;
 		}
 		else if (anime_timer < 0.8) {
 			if (anime_rotate == -2) {
 				anime_size.x = size.x;
 				anime_size.y = size.y;
 			}
-			anime_rotate = 10;
+			anime_rotate = 12;
 		}
 		else {
 			anime_timer = 0;
 		}
 
 		if (anime_timer > 0.35 && anime_timer < 0.4) {
-			anime_size.y -= 100 * dt;
+			anime_size.y -= 500 * dt;
 		}
 		if (anime_timer > 0.75 && anime_timer < 0.8) {
-			anime_size.y -= 100 * dt;
+			anime_size.y -= 500 * dt;
 		}
 	}
 #pragma endregion
@@ -325,7 +328,7 @@ Monster_Wizard::Monster_Wizard(Vector2 position, Direction direction)
 	:Monster(position, direction) {
 	this->max_hp = 90;
 	this->atk = 18;
-	this->speed = 3;
+	this->speed = 100;
 
 	this->attack_range = 480;
 	this->attack_coolTime = 4;
@@ -437,14 +440,14 @@ void Monster_Wizard::Draw_anime(float dt) {
 	}
 	else {
 		if (anime_timer < 0.4) {
-			if (anime_rotate == 12) {
+			if (anime_rotate == 5) {
 				anime_size.x = size.x;
 				anime_size.y = size.y;
 			}
 			anime_rotate = -5;
 		}
 		else if (anime_timer < 0.8) {
-			if (anime_rotate == -2) {
+			if (anime_rotate == -5) {
 				anime_size.x = size.x;
 				anime_size.y = size.y;
 			}
@@ -455,18 +458,18 @@ void Monster_Wizard::Draw_anime(float dt) {
 		}
 
 		if (anime_timer > 0.35 && anime_timer < 0.4) {
-			anime_size.y -= 100 * dt;
+			anime_size.y -= 500 * dt;
 		}
 		if (anime_timer > 0.75 && anime_timer < 0.8) {
-			anime_size.y -= 100 * dt;
+			anime_size.y -= 500 * dt;
 		}
 	}
 #pragma endregion
 	DrawTexturePro(Texture_monster,
 		{
-			anime_cut.x * direction,
+			anime_cut.x ,
 			anime_cut.y,
-			anime_cut.width,
+			anime_cut.width* direction,
 			anime_cut.height
 		},
 		{ pos.x, pos.y,
@@ -475,7 +478,7 @@ void Monster_Wizard::Draw_anime(float dt) {
 		anime_rotate, WHITE);
 
 	if (Get_Draw_Collider()) {
-		std::cout << "Draw_Collider player" << std::endl;
+		//std::cout << "Draw_Collider player" << std::endl;
 		DrawRectangleLinesEx(
 			{
 				pos.x - anime_size.x / 2,
@@ -580,8 +583,8 @@ void Monster_Fish::Draw_anime(float dt) {
 	}
 
 	DrawTexturePro(Texture_monster,
-		{ 391 ,1293,
-		(float)225 * direction,84 },
+		{ 43 ,288,
+		(float)230 * direction,88 },
 		{ pos.x, pos.y-100 , anime_size.x, anime_size.y },
 		{ 0 ,0 }, 0, WHITE);
 
@@ -594,7 +597,7 @@ Monster_Dog::Monster_Dog(Vector2 position, Direction direction)
 	:Monster(position, direction) {
 	this->max_hp = 180;
 	this->atk = 13;
-	this->speed = 4;
+	this->speed = 150;
 
 	this->attack_range = 100;
 	this->attack_coolTime = 5;
@@ -621,10 +624,10 @@ void Monster_Dog::MoveState(float dt, Player& player) {
 		return;
 	}
 	if (m_direc == RIGHT) {
-		pos.x += speed;
+		pos.x += speed *dt;
 	}
 	else {
-		pos.x -= speed;
+		pos.x -= speed * dt;
 	}
 	if (player.Return_Pos().x <= pos.x + attack_range ||
 		player.Return_Pos().x >= pos.x - attack_range) {
@@ -648,7 +651,7 @@ void Monster_Dog::Attack_State(float dt, Player& player) {
 		Attack_Player(dt,player);
 		return;
 	}
-	attack_timer +=dt ;
+	attack_timer +=dt;
 }
 //주금
 void Monster_Dog::Die_State(float dt, Player& player) {

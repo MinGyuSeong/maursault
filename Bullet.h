@@ -4,7 +4,7 @@
 
 class Monster;
 
-void draw_bullets();
+void draw_bullets(float dt);
 void update_bullets(float dt);
 void collision_bullets(Monster& monster);
 
