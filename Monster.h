@@ -7,7 +7,7 @@ class Player;
 void draw_monsters(float dt);
 void update_monsters(float dt, Player& player);
 void spawn_monster();
-
+void spawn_monster2();
 void LoadMonster_Image();
 
 enum Monster_State;

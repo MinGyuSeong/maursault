@@ -40,6 +40,7 @@ int main()
             spawn_monster();
             timer = 0;
 		}//생성
+        spawn_monster2();
 
         BeginDrawing();
         ClearBackground(RAYWHITE);

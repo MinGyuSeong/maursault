@@ -95,13 +95,19 @@ void spawn_monster() {
 		Direction::RIGHT));
 	monsters.push_back(new Monster_Dog({ 1980, WINDOW_HEIGHT / 2 + 200 },
 		Direction::LEFT));
+	//if (!monster_spawn.empty()) {
+	//	Monster_spawn monster =monster_spawn.back();
+	//	monster_spawn.pop_back();
+	//	monsters.push_back(new Monster_Fish(monster.pos, monster.dir));
+	//}
+}
+void spawn_monster2() {
 	if (!monster_spawn.empty()) {
-		Monster_spawn monster =monster_spawn.back();
+		Monster_spawn monster = monster_spawn.back();
 		monster_spawn.pop_back();
 		monsters.push_back(new Monster_Fish(monster.pos, monster.dir));
 	}
 }
-
 std::vector<Monster*> return_monsters() {
 	return monsters;
 }
@@ -503,13 +509,12 @@ Monster_Fish::Monster_Fish(Vector2 position, Direction direction)
 	:Monster(position, direction) {
 	this->max_hp = 20;
 	this->atk = 30;
-	this->speed = 12;
+	this->speed = 300;
 
 	this->attack_range = 0;
 	this->attack_coolTime = 2;
 
 	this->size = { 225 / 2, 84 / 2 };
-
 
 	this->Texture_monster = Texture_monster_Wizard;
 	////////////
